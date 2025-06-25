@@ -1,0 +1,226 @@
+table 'DIM CALENDARIO AUX'
+	lineageTag: b8dd9827-8532-4f26-b320-0275710e8370
+
+	column Date
+		formatString: General Date
+		lineageTag: eb3268b3-901b-43f4-aa60-28c6478e37a8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Date]
+
+		variation Variation
+			isDefault
+			relationship: 242e5f62-1505-4a4c-82d0-e11297d34657
+			defaultHierarchy: LocalDateTable_e7d65709-930e-499d-bf88-25bfcb8fa778.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero da Semana do Ano'
+		formatString: 0
+		lineageTag: 3ece618d-ffbd-4a4c-9f88-22557b9bb549
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Numero da Semana do Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome Abreviado do Mes'
+		lineageTag: 50d34c5b-5244-46c9-81e5-b934b13ab438
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Nome Abreviado do Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero do Mes'
+		lineageTag: 2b79047f-3302-49d6-8c7f-2eb183478bd5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Numero do Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero Semana do Mes'
+		formatString: 0
+		lineageTag: f4f0634d-9a65-42e0-b344-94c68a558c50
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Numero Semana do Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Mes'
+		lineageTag: f65e2854-694f-4b03-8f0d-f7462a7efffb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Semana do Mes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês e Ano'
+		formatString: General Date
+		lineageTag: fc67c3a2-0873-4b06-a34c-351d445b6699
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Mês e Ano]
+
+		variation Variation
+			isDefault
+			relationship: cc87dea3-a177-4e14-94a2-635542ba4b86
+			defaultHierarchy: LocalDateTable_2ea5b73a-48a6-4435-a989-6539fa918bc9.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ciclo
+		formatString: 0
+		lineageTag: b8d50018-4e93-49b8-aabf-777c8d95c3f1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Ciclo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		lineageTag: fba04c1b-6d56-4efc-ae4c-0c7fe731bb9c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia Semana'
+		lineageTag: 139cc7b5-f85f-4326-827e-f1be97e6d156
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Dia Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia Semana n'
+		formatString: 0
+		lineageTag: 62e14c5f-bb72-427e-af4c-2862e618b9c5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Dia Semana n]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primeiro Dia da Semana'
+		lineageTag: e0c3745d-6551-465f-966a-c90751cd81da
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Primeiro Dia da Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Último Dia da Semana'
+		lineageTag: 8890b811-8129-491a-8195-282727bf6d4a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Último Dia da Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Mes Intervalo'
+		lineageTag: 87fc0982-53b6-4824-b186-65e86ad02e80
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Semana do Mes Intervalo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês e Ano (Começo Semana)'
+		formatString: General Date
+		lineageTag: dd1b1c43-2f3a-4bd0-8c57-0171aa5b369b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Mês e Ano (Começo Semana)]
+
+		variation Variation
+			isDefault
+			relationship: 7766d9e7-3515-4831-82df-26cef7a3b398
+			defaultHierarchy: LocalDateTable_652776a4-f1b0-4239-ba60-304ebd5c26ee.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes (Começo Semana)'
+		lineageTag: ef75a367-dd53-44d3-b805-09707c58bdac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Mes (Começo Semana)]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		lineageTag: f5f379b3-9ddc-41c6-9da5-8172421a185f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês e Ano (Resumido)'
+		formatString: General Date
+		lineageTag: 94c94147-febe-4582-b9ba-bb1a44ab0a52
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Mês e Ano (Resumido)]
+
+		variation Variation
+			isDefault
+			relationship: cb3db803-b4bb-4fb4-9b2a-0dfb66ae1bfe
+			defaultHierarchy: LocalDateTable_81e87375-dfb9-460f-8398-d3fe39c33cf2.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes e Ano Coleta'
+		lineageTag: d1896db4-65c1-4218-a7ba-ac8544f4ecfe
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Mes e Ano Coleta]
+		sortByColumn: Ciclo
+
+		annotation SummarizationSetBy = User
+
+	column 'Ordenar semana'
+		formatString: General Date
+		lineageTag: d5d1ab06-ccab-4c45-8464-a8e38b8e8ddd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Ordenar semana]
+
+		variation Variation
+			isDefault
+			relationship: b86894dd-5afe-44a7-a74b-c206ea53d2f0
+			defaultHierarchy: LocalDateTable_64a0e242-84ad-4aa4-b3a4-fd3b5c10c578.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		formatString: General Date
+		lineageTag: c3e6d6c3-b21d-4afa-8f66-9230d0652e5f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Trimestre]
+
+		variation Variation
+			isDefault
+			relationship: b823929e-d6ea-4f67-8257-ef55b4699d03
+			defaultHierarchy: LocalDateTable_2e438dce-d524-4425-954d-9e50d4ad87db.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tri e Ano Coleta'
+		lineageTag: b93be340-d706-48d0-9366-277bf76c6a58
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DIM_CALENDARIO[Tri e Ano Coleta]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM CALENDARIO AUX' = calculated
+		mode: import
+		source = DIM_CALENDARIO
+
+	annotation PBI_Id = 117e565f3f6d4f028c7620531894ab52
+

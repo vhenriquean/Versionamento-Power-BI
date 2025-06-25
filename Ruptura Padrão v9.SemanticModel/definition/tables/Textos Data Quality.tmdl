@@ -1,0 +1,64 @@
+table 'Textos Data Quality'
+	lineageTag: 92312371-65d8-4b43-9f88-7321fd104bf8
+
+	column Título
+		lineageTag: c2d35581-7f7c-4928-8a5e-048c77c98cc4
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: f0007218-888e-4309-b0c2-4c7595debd3c
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		formatString: 0
+		lineageTag: 3d9d967e-6e7d-4332-b8ca-5c4bb48ff569
+		summarizeBy: count
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Textos Data Quality' = calculated
+		mode: import
+		source =
+				{("Pontos de Venda Ativos","pt-BR",0), ("Puntos de Venta Activos","es-ES",0), ("Actives Points of Sale","en-US",0),
+				("CNPJs Cadastrados","pt-BR",1), ("Registros Persona Jurídica","es-ES",1), ("Register Legal Person","en-US",1),
+				("Georreferenciados","pt-BR",2), ("Georreferenciados","es-ES",2), ("Georeferenced","en-US",2),
+				("Perfis Cadastrados","pt-BR",3), ("Perfiles Registrados","es-ES",3), ("Registered Profiles","en-US",3),
+				("Códigos Cadastrados","pt-BR",4), ("Códigos Registrados","es-ES",4), ("Registered Codes","en-US",4),
+				("Faturamento Cadastrado","pt-BR",5), ("Facturación Registrada","es-ES",5), ("Registered Invoices","en-US",5),
+				("Colaboradores Ativos","pt-BR",6), ("Empleados Activos","es-ES",6), ("Active Employees","en-US",6),
+				("CPFs Cadastrados","pt-BR",7), ("Registros Persona Física","es-ES",7), ("Individual Registrations","en-US",7),
+				("CPFs Válidos","pt-BR",8), ("Personas Físicas Validadas","es-ES",8), ("Valid Individual Registrations","en-US",8),
+				("Supervisores Cadastrados","pt-BR",9), ("Supervisores Registrados","es-ES",9), ("Registered Managers","en-US",9),
+				("Perfis de Acesso","pt-BR",10),	("Perfiles de Acceso","es-ES",10),	("Accesses Profiles","en-US",10),
+				("Endereços Cadastrados","pt-BR",11), ("Direcciones Registradas","es-ES",11), ("Registered Addresses","en-US",11),
+				("Perfis Colab. Cadastrados","pt-BR",12), ("Perfiles Empl. Registrados","es-ES",12), ("Registered Empl. Profiles","en-US",12),
+				("Filtros","pt-BR",13), ("Filtros","es-ES",13), ("Filters","en-US",13),
+				("Limpar Filtros","pt-BR",14), ("Limpiar Filtros","es-ES",14), ("Clean Filters","en-US",14),
+				("Pontos de Venda por","pt-BR",15), ("Puntos de Venta por","es-ES",15), ("Points of Sale by      ","en-US",15),
+				("Colaboradores por   ","pt-BR",16), ("Empleados por          ","es-ES",16), ("Employees by         ","en-US",16),
+				("Detalhamento por","pt-BR",17), ("Detalles por         ","es-ES",17), ("Details by             ","en-US",17),
+				("por","pt-BR",18), ("por","es-ES",18), ("by","en-US",18),
+				("Pontos de Venda","pt-BR",19), ("Puntos de Venta","es-ES",19), ("Points of Sale","en-US",19),
+				("Colaboradores","pt-BR",20), ("Empleados","es-ES",20), ("Employees","en-US",20),
+				("Supervisor","pt-BR",21), ("Supervisor","es-ES",21), ("Manager","en-US",21),
+				("CNPJs Válidos","pt-BR",22),	("Persona Jurídica Válida","es-ES",22),	("Valid Legal Person","en-US",22),
+				("Bandeira","pt-BR",23), ("Cadena","es-ES",23), ("Banner","en-US",23),
+				("Canal","pt-BR",24), ("Canal","es-ES",24), ("Channel","en-US",24),
+				("Tipo de PDV","pt-BR",25), ("Tipo del PDV","es-ES",25), ("POS Type","en-US",25),
+				("Perfil do PDV","pt-BR",26), ("Perfil del PDV","es-ES",26), ("POS Profile","en-US",26),
+				("Rede","pt-BR",27), ("Red","es-ES",27), ("Chain","en-US",27),
+				("Estado","pt-BR",28), ("División Territorial","es-ES",28), ("State","en-US",28),
+				("Idioma","pt-BR",29), ("Idioma","es-ES",29), ("Language","en-US",29),
+				("Ambiente","pt-BR",30), ("Ambiente","es-ES",30), ("Environment","en-US",30),
+				("Mês e Ano","pt-BR",31), ("Mes y Año","es-ES",31), ("Month and Year","en-US",31),
+				("Data","pt-BR",32), ("Fecha","es-ES",32), ("Date","en-US",32)}
+
+	annotation PBI_Id = 573d4e965c404304b43e63786f78ad75
+

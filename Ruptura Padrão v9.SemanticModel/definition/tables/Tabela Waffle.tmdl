@@ -1,0 +1,47 @@
+table 'Tabela Waffle'
+	lineageTag: 62030c7f-3f00-422a-b46e-b67f56342a65
+
+	column EY
+		dataType: int64
+		formatString: 0
+		lineageTag: 65b7c9af-e1f2-4d87-a074-ce45792bddaa
+		summarizeBy: sum
+		sourceColumn: EY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EX
+		dataType: int64
+		formatString: 0
+		lineageTag: 5fca8ccd-98df-4747-933f-871a11a39b8f
+		summarizeBy: sum
+		sourceColumn: EX
+
+		annotation SummarizationSetBy = Automatic
+
+	column Índice
+		dataType: int64
+		formatString: 0
+		lineageTag: 08ccb10e-c9c1-465a-b562-1107507436b3
+		summarizeBy: sum
+		sourceColumn: Índice
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tabela Waffle' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSK1YlWMgKTxmDSBEyagkkzMGkOJi3ApCWYNDRQio0FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [EY = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"EY", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "EX", each {1..10}),
+				    #"Expanded {0}" = Table.ExpandListColumn(#"Added Custom", "EX"),
+				    #"Added Index" = Table.AddIndexColumn(#"Expanded {0}", "Índice", 1, 1, Int64.Type),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Index",{{"Índice", Int64.Type}, {"EX", Int64.Type}, {"EY", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

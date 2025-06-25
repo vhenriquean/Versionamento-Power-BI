@@ -1,0 +1,57 @@
+table Parâmetro
+	lineageTag: c6565614-8c8d-4e3f-ba0e-b67f5b494a80
+
+	column Parâmetro
+		lineageTag: 46a63922-42b3-4ba6-9d3f-7469de2fac81
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		isHidden
+		lineageTag: 04bf9c03-d927-4d39-a375-2a139635c9b0
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 9e22db47-3b66-4430-acba-8803c86934cc
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parâmetro = calculated
+		mode: import
+		source =
+				{
+				    ("Nome Colaborador", NAMEOF('DIM_COLABORADOR'[NOME_COLABORADOR]), 0),
+				    ("Perfil de Acesso", NAMEOF('DIM_COLABORADOR'[PERFIL_ACESSO]), 1),
+				    ("Perfil de Colaborador", NAMEOF('DIM_COLABORADOR'[PERFIL_COLABORADOR]), 2),
+				    ("Colaborador Superior", NAMEOF('DIM_COLABORADOR'[COLABORADOR_SUPERIOR]), 3),
+				    ("Id PDV", NAMEOF('DIM_PDV'[ID_PDV]), 4),
+				    ("Nome PDV", NAMEOF('DIM_PDV'[NOME_PDV]), 5),
+				    ("Bandeira", NAMEOF('DIM_PDV'[BANDEIRA]), 6),
+				    ("Rede", NAMEOF('DIM_PDV'[REDE]), 7),
+				    ("Canal", NAMEOF('DIM_PDV'[CANAL_PDV]), 8),
+				    ("Regional", NAMEOF('DIM_PDV'[REGIONAL]), 9),
+				    ("Macrorregional", NAMEOF('DIM_PDV'[MACRORREGIONAL]), 10)
+				}
+
+	annotation PBI_Id = 6744b46cec16467ca52c889cbb0b47a1
+

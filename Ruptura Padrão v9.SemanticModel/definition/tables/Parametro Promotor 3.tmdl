@@ -1,0 +1,78 @@
+table 'Parametro Promotor 3'
+	lineageTag: 48f9a8dc-0df8-4cdd-a22d-d5c3f77204fc
+
+	column 'Parametro Promotor 3'
+		lineageTag: b5f1aee0-8176-4e6e-a1ee-7180ed842a1f
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parametro Promotor 3 Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parametro Promotor 3 Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro Promotor 3 Campos'
+		isHidden
+		lineageTag: a7bd1ec3-c974-4fff-8689-7086db3c5257
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parametro Promotor 3 Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro Promotor 3 Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 32ecc8f5-f7c9-4731-acb8-e19d79384715
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		isHidden
+		lineageTag: 5b51bcf0-fd74-46b0-a478-34f218491625
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametro Promotor 3' = calculated
+		mode: import
+		source =
+				{
+				    ("Macrorregional", NAMEOF('DIM_PDV'[MACRORREGIONAL]), 0,"pt-BR"),
+				    ("Regional", NAMEOF('DIM_PDV'[REGIONAL]), 1,"pt-BR"),
+				    ("Estado", NAMEOF('DIM_PDV'[ESTADO]), 2,"pt-BR"),
+				    ("Rede", NAMEOF('DIM_PDV'[REDE]), 3,"pt-BR"),
+				    ("Canal", NAMEOF('DIM_PDV'[CANAL_PDV]), 4,"pt-BR"),
+				    ("PDV", NAMEOF('DIM_PDV'[NOME_PDV]), 5,"pt-BR"),
+				    ("Promotor", NAMEOF('DIM_COLABORADOR'[NOME_COLABORADOR]), 6,"pt-BR"),
+				    ("Supervisor", NAMEOF('DIM_COLABORADOR'[COLABORADOR_SUPERIOR]), 7,"pt-BR"),
+				        ("Macrorregional", NAMEOF('DIM_PDV'[MACRORREGIONAL]), 0,"es-ES"),
+				    ("Regional", NAMEOF('DIM_PDV'[REGIONAL]), 1,"es-ES"),
+				    ("División Territorial", NAMEOF('DIM_PDV'[ESTADO]), 2,"es-ES"),
+				    ("Red", NAMEOF('DIM_PDV'[REDE]), 3,"es-ES"),
+				    ("Canal", NAMEOF('DIM_PDV'[CANAL_PDV]), 4,"es-ES"),
+				    ("PDV", NAMEOF('DIM_PDV'[NOME_PDV]), 5,"es-ES"),
+				    ("Empleado", NAMEOF('DIM_COLABORADOR'[NOME_COLABORADOR]), 6,"es-ES"),
+				    ("Supervisor", NAMEOF('DIM_COLABORADOR'[COLABORADOR_SUPERIOR]), 7,"es-ES"),
+				                ("Macrorregional", NAMEOF('DIM_PDV'[MACRORREGIONAL]), 0,"en-US"),
+				    ("Regional", NAMEOF('DIM_PDV'[REGIONAL]), 1,"en-US"),
+				    ("State", NAMEOF('DIM_PDV'[ESTADO]), 2,"en-US"),
+				    ("Chain", NAMEOF('DIM_PDV'[REDE]), 3,"en-US"),
+				    ("Canal", NAMEOF('DIM_PDV'[CANAL_PDV]), 4,"en-US"),
+				    ("POS", NAMEOF('DIM_PDV'[NOME_PDV]), 5,"en-US"),
+				    ("Employee", NAMEOF('DIM_COLABORADOR'[NOME_COLABORADOR]), 6,"en-US"),
+				    ("Manager", NAMEOF('DIM_COLABORADOR'[COLABORADOR_SUPERIOR]), 7,"en-US")
+				}
+
+	annotation PBI_Id = 3650603fb0ed40e4b37eecfe059b9162
+

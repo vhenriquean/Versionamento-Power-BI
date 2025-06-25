@@ -1,0 +1,170 @@
+table TITULOS
+	lineageTag: 46776bea-8880-40b9-be0d-bb909d1af4fc
+
+	measure 'URL Text Data Quality' = ```
+			"https://app.powerbi.com/groups/f94c0e17-8aaa-4d8d-bb51-0f6ec3df6b00/reports/7c8510a9-b9a7-441d-a9a3-5a214e0354f2/ReportSection?experience=power-bi" 
+			& SWITCH (
+			        TRUE,
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="es-es", "&language=es-es",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="pt-BR", "&language=pt-br",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="en-US", "&language=en-us"
+			        ) 
+			```
+		lineageTag: 330271d9-708d-4060-abd5-bde5f2ca5b63
+
+	measure 'URL Text Visitas Geral' = ```
+			"https://app.powerbi.com/groups/f94c0e17-8aaa-4d8d-bb51-0f6ec3df6b00/reports/7c8510a9-b9a7-441d-a9a3-5a214e0354f2/ReportSection9c0106102403721e7801?experience=power-bi" 
+			& SWITCH (
+			        TRUE,
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="es-es", "&language=es-es",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="pt-BR", "&language=pt-br",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="en-US", "&language=en-us"
+			        ) 
+			```
+		lineageTag: d261582f-e3e8-4854-9954-81eeb218ff6b
+
+	measure 'URL Text Visitas Tabela' = ```
+			"https://app.powerbi.com/groups/f94c0e17-8aaa-4d8d-bb51-0f6ec3df6b00/reports/7c8510a9-b9a7-441d-a9a3-5a214e0354f2/ReportSection7df983c744d9576946d4?experience=power-bi" 
+			& SWITCH (
+			        TRUE,
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="es-es", "&language=es-es",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="pt-BR", "&language=pt-br",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="en-US", "&language=en-us"
+			        ) 
+			```
+		lineageTag: 862e977a-93cc-4659-aa39-bb9991852ea4
+
+	measure 'URL Text Pesquisas Geral' = ```
+			"https://app.powerbi.com/groups/f94c0e17-8aaa-4d8d-bb51-0f6ec3df6b00/reports/7c8510a9-b9a7-441d-a9a3-5a214e0354f2/ReportSectionc68a160b00bde06c0473?experience=power-bi" 
+			& SWITCH (
+			        TRUE,
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="es-es", "&language=es-es",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="pt-BR", "&language=pt-br",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="en-US", "&language=en-us"
+			        ) 
+			```
+		lineageTag: d6c06038-5091-4723-b481-ad6e6e91f520
+
+	measure 'URL Text Pesquisas Detalhe' = ```
+			"https://app.powerbi.com/groups/f94c0e17-8aaa-4d8d-bb51-0f6ec3df6b00/reports/7c8510a9-b9a7-441d-a9a3-5a214e0354f2/ReportSection24f1d7220747ab9418b0?experience=power-bi" 
+			& SWITCH (
+			        TRUE,
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="es-es", "&language=es-es",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="pt-BR", "&language=pt-br",
+			        SELECTEDVALUE('Parametro Idioma'[Idioma])="en-US", "&language=en-us"
+			        ) 
+			```
+		lineageTag: 6a8a7b36-ae3b-4da8-9982-7e58a418ef50
+
+	measure 'Presença e Ruptura' = 0
+		lineageTag: 86c71fef-3205-43d1-9c9c-d05fc87ab9df
+
+	measure 'Médias de Produtos' = 0
+		lineageTag: 94a58e97-babc-4f8a-91e5-89db3b134daf
+
+	measure 'Cobertura de Coletas' = 0
+		lineageTag: 7cacc927-c73c-484d-aec9-f73fbf9d8d37
+
+	measure 'Top 5 - Categorias Presentes' = 0
+		lineageTag: ea9c0180-8c9f-47f8-b6cf-0d3e8611bfa5
+
+	measure 'Top 5 -Categorias em Ruptura' = 0
+		lineageTag: 419b6d9a-a869-4389-a7e9-fb7734672994
+
+	measure Evolutivo = 0
+		lineageTag: 3398dd2d-3f17-476b-89fa-1dbd97aae275
+
+	measure 'Ranking % Ruptura por' = 0
+		lineageTag: 0e671bf5-9a1c-46ab-b10e-8a3ede1b218f
+
+	measure 'Dispersão - Quantidade de Pesquisas vs. % Ruptura por' = 0
+		lineageTag: b37074ff-466c-4969-b4f6-4eab530b20d5
+
+	measure 'Cor Principal' = "#353535"
+		lineageTag: 85b474cf-cade-457a-a645-bcb7ef7a6245
+
+	measure 'Cor Secundária' = "#DF050B"
+		lineageTag: a1c6b197-a984-439b-b59e-fcb1fef7d01f
+
+	measure 'Cor Texto' = "#FFFFFF"
+		lineageTag: d19ba5eb-cc94-46bb-b3ef-4b3af7f925e6
+
+	measure 'Ranking Linhas de Produto Presentes' = 0
+		formatString: 0
+		lineageTag: 848c7d08-3404-4096-8db9-e61b1f956222
+
+	measure 'Ranking Linhas de Produto em Ruptura' = 0
+		formatString: 0
+		lineageTag: 96ab88f0-d213-4489-bf4d-76234b41379f
+
+	measure 'Detalhamento Produtos por' = 0
+		formatString: 0
+		lineageTag: fd94df75-a839-45b9-9c54-8e8bb307f128
+
+	measure 'Detalhamento Geral por' = 0
+		formatString: 0
+		lineageTag: 5a1606ae-4c81-4d4f-9d06-da079f8d30bd
+
+	measure 'Última Atualização' = 0
+		formatString: 0
+		lineageTag: 52b82cd6-5d6b-4f00-98f2-61b146d1220b
+
+	measure 'Heatmap % Ruptura' = 0
+		formatString: 0
+		lineageTag: 9a2741c8-ce4a-44a4-a3da-feab9a12ffd2
+
+	measure 'Tabela Dinâmica' = 0
+		formatString: 0
+		lineageTag: 6aa245a6-ff77-4af7-9c95-157770e68b27
+
+	measure 'Pareto ABC de Ruptura por' = 0
+		formatString: 0
+		lineageTag: fafb7a40-bc69-47de-a998-f3007cebd826
+
+	measure 'Motivos de Ruptura' = 0
+		formatString: 0
+		lineageTag: 3b7d0152-d538-476d-be0d-9813771079f2
+
+	measure S = 0
+		formatString: 0
+		lineageTag: 55f39309-ca20-4a7d-bc46-7bb7b56b2543
+
+	measure T = 0
+		formatString: 0
+		lineageTag: a8df5832-1681-4a55-84be-e34f2804b2c8
+
+	measure 'Curva ABC (60-30-10) por' = 0
+		formatString: 0
+		lineageTag: 7341d94e-95ba-4fa7-bcea-e96022b0f055
+
+	measure 'Pareto 80% - 20% de Presença por' = 0
+		formatString: 0
+		lineageTag: b3aad0aa-750a-444d-8015-1e2a603d12d2
+
+	measure M = 0
+		formatString: 0
+		lineageTag: 7b1a040e-ed5d-4fe6-8bc9-8a4c08dbd3f5
+
+	measure 'Comparação de Presença e Ruptura entre' = 0
+		formatString: 0
+		lineageTag: b74cb95a-8258-4bdb-bd2a-8245cc3c0e99
+
+	measure 'Variação Percentual entre os períodos selecionados' = 0
+		formatString: 0
+		lineageTag: de623235-41f0-45ad-877f-5e08d7895680
+
+	measure 'Detalhamento Ruptura Curva ABC' = 0
+		formatString: 0
+		lineageTag: b175d677-a792-4066-a87b-709c5c5d335b
+
+	partition TITULOS = m
+		mode: import
+		source =
+				let
+				    Fonte = #table(1,{1,2,3}),
+				    #"Colunas Removidas" = Table.RemoveColumns(Fonte,{"Column1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

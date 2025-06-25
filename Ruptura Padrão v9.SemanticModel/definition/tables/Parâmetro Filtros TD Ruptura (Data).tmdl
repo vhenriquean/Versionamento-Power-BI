@@ -1,0 +1,50 @@
+table 'Parâmetro Filtros TD Ruptura (Data)'
+	lineageTag: 697903f0-5fd8-4d82-906d-d420f40393c1
+
+	column 'Parâmetro Filtros TD Ruptura'
+		lineageTag: 083cbaea-c6c6-4ac6-b439-fcbf02331dea
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Filtros TD Ruptura Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Filtros TD Ruptura Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Filtros TD Ruptura Campos'
+		isHidden
+		lineageTag: 126122ef-511b-461c-8769-eabe8f4a0d93
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Filtros TD Ruptura Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Filtros TD Ruptura Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 1aeca847-d735-45c8-b9d5-f8948e472488
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Filtros TD Ruptura (Data)' = calculated
+		mode: import
+		source =
+				{
+				    ("Data da Pesquisa", NAMEOF('FT_RUPTURA'[DATA]), 0),
+				    ("Mês e Ano", NAMEOF(DIM_CALENDARIO[Mês e Ano]), 1),
+				    ("Trimestre", NAMEOF('DIM CALENDARIO AUX'[Trimestre]), 2),
+				    ("Ano", NAMEOF(DIM_CALENDARIO[Ano]), 3)
+				}
+
+	annotation PBI_Id = 4a7d9b1ee30e4bc3805a41fe95824b49
+

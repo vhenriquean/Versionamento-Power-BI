@@ -1,0 +1,191 @@
+table DIM_PRODUTO
+	lineageTag: d8293d79-cbfe-427c-8d81-d87ef67a6665
+
+	column ID_DIM_LINHA_PRODUTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cebab07-ddc5-4e70-8c0d-417d4e9f86bb
+		summarizeBy: none
+		sourceColumn: ID_DIM_LINHA_PRODUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_URL
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a335738-da29-48f7-8ed5-12eab9ca67f8
+		summarizeBy: none
+		sourceColumn: ID_URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_AMBIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: aef350a6-0cde-416b-a258-25971408e270
+		summarizeBy: none
+		sourceColumn: ID_AMBIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_LINHA_PRODUTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e29f5b5-29d7-4466-8382-f574ffd8696f
+		summarizeBy: none
+		sourceColumn: ID_LINHA_PRODUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINHA_PRODUTO
+		dataType: string
+		lineageTag: 9f1a4c43-697a-4b65-b935-2fc5e8e84752
+		summarizeBy: none
+		sourceColumn: LINHA_PRODUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARCA
+		dataType: string
+		lineageTag: 63ef480a-05c8-42c2-9b13-fe8f75980948
+		summarizeBy: none
+		sourceColumn: MARCA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORIA_PRODUTO
+		dataType: string
+		lineageTag: 61d8cda1-5b07-4e5b-84ea-7a1deabf47c0
+		summarizeBy: none
+		sourceColumn: CATEGORIA_PRODUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPER_CATEGORIA
+		dataType: string
+		lineageTag: 688bb046-c626-447b-b33f-9657bd3860d8
+		summarizeBy: none
+		sourceColumn: SUPER_CATEGORIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORIGEM
+		dataType: int64
+		formatString: 0
+		lineageTag: b41c9239-928c-4e8f-9142-89a35e33aab3
+		summarizeBy: none
+		sourceColumn: ORIGEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODIGO_BARRAS
+		dataType: string
+		lineageTag: 1c294ab4-0aae-4c4d-b117-f0607a9704d5
+		summarizeBy: none
+		sourceColumn: CODIGO_BARRAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_ERP
+		dataType: string
+		lineageTag: aaf2decb-7bb2-4e16-9c30-cfed6c32ad49
+		summarizeBy: none
+		sourceColumn: COD_ERP
+
+		annotation SummarizationSetBy = Automatic
+
+	column ATIVO
+		dataType: int64
+		formatString: 0
+		lineageTag: bb14a4ec-2ed9-4821-8c0e-1c05763ed048
+		summarizeBy: none
+		sourceColumn: ATIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC1
+		dataType: string
+		lineageTag: 53067dcf-4a1c-48d1-be79-4aca0055b043
+		summarizeBy: none
+		sourceColumn: CC1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC2
+		dataType: string
+		lineageTag: b5aa1c97-d429-428d-8297-9b2189438937
+		summarizeBy: none
+		sourceColumn: CC2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC3
+		dataType: string
+		lineageTag: 5ae7102f-ddfb-4292-ad80-e0365e76252e
+		summarizeBy: none
+		sourceColumn: CC3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC4
+		dataType: string
+		lineageTag: 7bdda543-082d-4206-a505-3979fab676c4
+		summarizeBy: none
+		sourceColumn: CC4
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC5
+		dataType: string
+		lineageTag: 26360b45-ffcc-4487-8437-8bfb7b7401a9
+		summarizeBy: none
+		sourceColumn: CC5
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC6
+		dataType: string
+		lineageTag: a8e9be03-c748-47d3-91be-372aac506726
+		summarizeBy: none
+		sourceColumn: CC6
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC7
+		dataType: string
+		lineageTag: dc51e0db-fcb5-4afc-a01e-e19c9d8e13c5
+		summarizeBy: none
+		sourceColumn: CC7
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC8
+		dataType: string
+		lineageTag: e6df5bee-900a-4abf-9011-a4b92f57222d
+		summarizeBy: none
+		sourceColumn: CC8
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC9
+		dataType: string
+		lineageTag: 13db89f8-ae7e-4213-bc49-826e9b0d595c
+		summarizeBy: none
+		sourceColumn: CC9
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_PRODUTO = m
+		mode: import
+		source =
+				let
+				    Fonte = MySQL.Database("inteligenciadb1.involves.com", "BIS_QUATA", [ReturnSingleDatabase=true]),
+				    BIS_MDIASLP_DIM_COLABORADOR = Fonte{[Schema="BIS_QUATA",Item="DIM_LINHA_PRODUTO"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(BIS_MDIASLP_DIM_COLABORADOR,{"CC10"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

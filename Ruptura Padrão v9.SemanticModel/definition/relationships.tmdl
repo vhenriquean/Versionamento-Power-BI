@@ -1,0 +1,198 @@
+relationship ce8838ea-5129-44b7-8ca5-1334f4cb15ce
+	fromColumn: FT_RUPTURA.ID_DIM_COLABORADOR
+	toColumn: DIM_COLABORADOR.ID_DIM_COLABORADOR
+
+relationship 2c773259-420a-44db-953a-1dc97cd090e3
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Parametro Colaborador 2'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 0edda63b-d33f-4d4f-ada1-4fd9a40f4486
+	fromColumn: 'Parâmetro Cadastro Colaboradores'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship a640fbff-6500-4a72-8b74-d9231304f135
+	fromColumn: 'Parâmetro Cadastro PDVs'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 4c15e3df-c76b-481f-82d6-0f9b4fcfccaa
+	fromColumn: 'Parâmetro Dim PDV 1'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 4206b6dd-e161-4a6b-a944-e71b1dc06d1f
+	fromColumn: 'Parametro Promotor'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship cae142aa-55bf-42c8-a7d6-d245bf1e15bb
+	fromColumn: 'Parametro Promotor 2'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship bb33b310-d8d6-4c5c-a9b5-5a61853084d8
+	fromColumn: 'Parametro Promotor 3'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 3fa169bc-11d6-48c7-98f9-b9b9a27a693a
+	fromColumn: 'Parâmetro Dim Colab 1'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship fe14cc22-04bd-4bd4-bf6a-db136b62446b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Botão PDV'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship b200bc63-14b6-442b-9155-00ae77066191
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Botão Colaborador'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 4c5e298f-7b37-4498-8df2-8b143f22845b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Botão Visitas Gerais'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship cfe9f20c-f4d9-4b89-9d15-8ca1456e28bb
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Botão Visitas Det'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 109814a3-f66e-47c6-8082-61a8148d49a8
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Botão Pesquisas'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 89f682b0-fbbd-4425-995a-fa285af8fa31
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_CALENDARIO.Date
+	toColumn: LocalDateTable_34a675d5-e0a3-4da0-9eff-dfc5e04b3835.Date
+
+relationship 2df3bd21-db6e-4d12-a951-fb048ef9fa52
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_CALENDARIO.'Mês e Ano (Começo Semana)'
+	toColumn: LocalDateTable_047028a4-f4e3-4546-9ad1-3b42d9f5b453.Date
+
+relationship ba80f09c-69cf-47bc-be1f-c0434415b89e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_CALENDARIO.'Mês e Ano (Resumido)'
+	toColumn: LocalDateTable_f8b6d14f-d28a-4e9f-a8a5-d177d2254c6f.Date
+
+relationship d6e0e287-db37-448b-9c33-80ca126a64a1
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Parametro Idioma'.Idioma
+	toColumn: 'Botão Pesquisas Det'.Value2
+
+relationship AutoDetected_f8a2abbd-5dd4-4429-84b2-8efa1b7f847a
+	fromColumn: FT_RUPTURA.ID_URL
+	toColumn: DIM_AMBIENTE.ID_URL
+
+relationship 1a6589e2-944a-42cd-80b4-da0f6129863d
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Textos Data Quality'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship c1834190-e9ec-4592-9b8e-d1ad6bf67d6f
+	fromColumn: 'Tabela Pesquisas'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 57f32bfe-9735-438a-882e-1eb13ac34f44
+	crossFilteringBehavior: bothDirections
+	fromColumn: FT_RUPTURA.ID_DIM_LINHA_PRODUTO
+	toColumn: DIM_PRODUTO.ID_DIM_LINHA_PRODUTO
+
+relationship 51fe19b8-7e25-c084-b177-3ff6b1913388
+	fromColumn: FT_RUPTURA.DATA
+	toColumn: DIM_CALENDARIO.Date
+
+relationship 0c83b180-12b2-449f-9829-3fa71dab5577
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_CALENDARIO.'Mês e Ano'
+	toColumn: LocalDateTable_b2e2e3a5-b93b-44eb-ba31-ad6f778aa974.Date
+
+relationship 1660a5ee-0682-4ed7-8387-7b40a34600f6
+	fromColumn: 'Tabela Visitas'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 4b2e3a50-74ce-8421-2671-f88661467326
+	fromColumn: FT_RUPTURA.ID_DIM_PDV
+	toColumn: DIM_PDV.ID_DIM_PDV
+
+relationship 1a0e2d90-357f-4d98-a141-c237b72ccdcd
+	fromColumn: 'Parametro Promotor 4'.Idioma
+	toColumn: 'Parametro Idioma'.Idioma
+
+relationship 71dbc69e-2e51-4a5a-b3db-413ddb8af508
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_CALENDARIO.Trimestre
+	toColumn: LocalDateTable_aeb3d2ba-68e3-4f35-8bc3-b93dc9fcca9c.Date
+
+relationship 8dbd4db4-9354-416d-85bb-6276ea7e1051
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DIM_CALENDARIO.'Ordenar semana'
+	toColumn: LocalDateTable_f0dd1a06-7298-43fe-b23f-b4df61d21a08.Date
+
+relationship 242e5f62-1505-4a4c-82d0-e11297d34657
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX'.Date
+	toColumn: LocalDateTable_e7d65709-930e-499d-bf88-25bfcb8fa778.Date
+
+relationship cc87dea3-a177-4e14-94a2-635542ba4b86
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX'.'Mês e Ano'
+	toColumn: LocalDateTable_2ea5b73a-48a6-4435-a989-6539fa918bc9.Date
+
+relationship 7766d9e7-3515-4831-82df-26cef7a3b398
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX'.'Mês e Ano (Começo Semana)'
+	toColumn: LocalDateTable_652776a4-f1b0-4239-ba60-304ebd5c26ee.Date
+
+relationship cb3db803-b4bb-4fb4-9b2a-0dfb66ae1bfe
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX'.'Mês e Ano (Resumido)'
+	toColumn: LocalDateTable_81e87375-dfb9-460f-8398-d3fe39c33cf2.Date
+
+relationship b86894dd-5afe-44a7-a74b-c206ea53d2f0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX'.'Ordenar semana'
+	toColumn: LocalDateTable_64a0e242-84ad-4aa4-b3a4-fd3b5c10c578.Date
+
+relationship b823929e-d6ea-4f67-8257-ef55b4699d03
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX'.Trimestre
+	toColumn: LocalDateTable_2e438dce-d524-4425-954d-9e50d4ad87db.Date
+
+relationship 2207f2ab-4afd-47d1-9d26-d0f4e4dff037
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX 2'.Date
+	toColumn: LocalDateTable_4cd2925d-c6bf-4d31-a161-7292e8a2887a.Date
+
+relationship 020f006d-bc9c-4070-a3f2-3fecb8cd536d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX 2'.'Mês e Ano'
+	toColumn: LocalDateTable_6dffbced-5d41-49a6-a99d-10dc24db9574.Date
+
+relationship c9c672e3-b9c5-4580-9068-a2d78beb6c93
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX 2'.'Mês e Ano (Começo Semana)'
+	toColumn: LocalDateTable_8f9af735-352a-47f4-865e-89827bd53432.Date
+
+relationship 14f7efe1-9f02-4fb4-84a4-7a6bb60ff04f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX 2'.'Mês e Ano (Resumido)'
+	toColumn: LocalDateTable_3ebd5046-7d49-4a07-b3b2-647653fb59ec.Date
+
+relationship 08707449-969a-40f7-a630-fc27fb59d4a4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX 2'.'Ordenar semana'
+	toColumn: LocalDateTable_c9bc4846-30fb-40d0-a4da-62d4f982b3f8.Date
+
+relationship c33a8a66-2c14-40b0-9e3a-a861657b8942
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DIM CALENDARIO AUX 2'.Trimestre
+	toColumn: LocalDateTable_63b639f8-c1b6-433e-87e3-28bbdbfd2464.Date
+

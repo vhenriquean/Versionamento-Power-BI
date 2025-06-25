@@ -1,0 +1,32 @@
+table 'Botão Visitas Det'
+	lineageTag: b8938714-ad55-495d-9830-3eb0a6997845
+
+	column 'Visitas D'
+		lineageTag: 87cf2c8a-e42b-4584-9fde-99c476d1e823
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: 58d02570-2d7e-40f9-9ccd-4e1ccfdf8707
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value3
+		formatString: 0
+		lineageTag: a581ba94-7db9-4be7-8297-2c52ed958304
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Botão Visitas Det' = calculated
+		mode: import
+		source = {("Visitas - Detalhamento","pt-BR",0),	("Visitas - Detalle","es-ES",0),	("Visits - Details","en-US",0)}
+
+	annotation PBI_Id = 80477f3c83d94e3ca1a1b161ddfc950e
+

@@ -1,0 +1,22 @@
+table classe_categoria
+	lineageTag: acfe6d3b-632d-47e3-83b0-2ba77d217ddf
+
+	column 'Classe ABC'
+		dataType: string
+		lineageTag: fd1bd430-d645-46a8-8d3a-49167afb9ff6
+		summarizeBy: none
+		sourceColumn: Classe ABC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition classe_categoria = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wck4sSU3PL8pMLFYoLE1VyDu8OF8hM7cgMbkkMVchL1EhqLSgpLQoUSlWB0MtXFlBfmlyPh7FuYmZxTDVeSWpxShKYwE=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Classe ABC" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Classe ABC", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

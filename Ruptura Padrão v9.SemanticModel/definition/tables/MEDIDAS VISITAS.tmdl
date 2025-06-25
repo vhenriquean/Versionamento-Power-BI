@@ -1,0 +1,914 @@
+table 'MEDIDAS VISITAS'
+	lineageTag: 5859ea15-56a7-4e3e-bdc6-829e9cb7572f
+
+	measure 'Visitas Realizadas' = DISTINCTCOUNT(FT_RUPTURA[CHAVE_RESUMIDA])
+		formatString: #,0
+		lineageTag: 815b78dc-f16f-4fbc-abe5-9826198af2bc
+
+	measure 'Check-in Entrada BN' = "Check-in Entrada"
+		lineageTag: 2c326731-af75-4c03-b6fd-3d813959a65d
+
+	measure 'Check-out Saída BN' = "Check-out Saída"
+		lineageTag: 05fdc7d9-98ad-48e7-9af7-82c9b4af9ba6
+
+	measure 'Atendimento Planejado BN' = FORMAT([Visitas Realizadas], "#0,00")
+		lineageTag: df8f437d-63b9-4fcb-a8bc-6ed8ac9e01c8
+
+	measure 'Colaboradores Totais' = DISTINCTCOUNT(FT_RUPTURA[COLABORADOR CICLO]) / DISTINCTCOUNT(FT_RUPTURA[CICLO])
+		formatString: 0
+		lineageTag: 83cc4ab1-03a5-46d1-94da-0301080d4380
+
+	measure 'Colab Planejados BN' = FORMAT([Colaboradores Totais], "#0,00")
+		lineageTag: d845d869-8929-4dbb-99a8-cf0e0fbb7dfe
+
+	measure 'Valores Relevantes' = COUNTROWS(FT_RUPTURA)
+		formatString: 0
+		lineageTag: a1f84826-ffeb-486d-8af5-d5d168b4e058
+
+	measure 'Total PDVs' = (DISTINCTCOUNT(DIM_PDV[ID_PDV]))
+		formatString: 0
+		lineageTag: b9f35fb2-54a6-467f-b7b7-2f3bcc23b9a5
+
+	measure 'Produtos Presentes' = SUM(FT_RUPTURA[PRESEÇA_NUM])
+		formatString: #,0
+		lineageTag: 9599bc0c-464c-4da0-9b5d-0d952ee0d9e9
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Produtos Pesquisados' = [Produtos Presentes]+[Produtos em Ruptura]+[Produtos Não Cadastrados]
+		formatString: #,0
+		lineageTag: 7f9abdf7-4213-4304-abf7-2c3b341db672
+
+	measure 'Produtos Presentes %' = DIVIDE([Produtos Presentes],[Produtos Pesquisados])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: d3c4dd52-ba79-48c6-81b9-ca0d39563530
+
+	measure 'Produtos Ruptura %' = DIVIDE([Produtos em Ruptura],[Produtos Pesquisados])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: fae409d9-941a-4281-82e2-93214b7e0dc4
+
+	measure 'Produtos em Ruptura' = SUM(FT_RUPTURA[RUPTURA])
+		formatString: #,0
+		lineageTag: a5bc03c3-6c88-467c-b9dd-18cbde407734
+
+	measure 'Controle Valores relevantes' = COUNTROWS(FT_RUPTURA)
+		formatString: 0
+		lineageTag: 83375a8c-755f-45ee-8a53-b62f213f954d
+
+	measure 'Produtos Não Cadastrados' = sum(FT_RUPTURA[PRESENÇA.1])
+		formatString: #,0
+		lineageTag: 0bf85901-63c1-4fbb-b9ba-1e5e62e59484
+
+	measure 'Produtos Não Cadastrados %' = DIVIDE([Produtos Não Cadastrados], [Produtos Pesquisados])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 06488ddb-9ca3-4f3f-911b-f33dbfb49823
+
+	measure Medida = 0.9999
+		lineageTag: 30b13040-1a35-4660-88a5-4a6bbcd18ebb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dummy Categoria' = 0
+		lineageTag: 81823e49-ef27-42ed-a3bc-c3beb92bd37e
+
+		formatStringDefinition = " " & SELECTEDVALUE(DIM_PRODUTO[CATEGORIA_PRODUTO])
+
+	measure 'Linhas de Produto' = DISTINCTCOUNT(DIM_PRODUTO[LINHA_PRODUTO])
+		formatString: #,0
+		lineageTag: 71d4675e-df91-4384-957f-ad32ac27efe1
+
+	measure Categorias = DISTINCTCOUNT(DIM_PRODUTO[CATEGORIA_PRODUTO])
+		formatString: #,0
+		lineageTag: e7f2c1ca-97b0-4825-9b36-d8a219994189
+
+	measure 'Super Categorias' = DISTINCTCOUNT(DIM_PRODUTO[SUPER_CATEGORIA])
+		formatString: #,0
+		lineageTag: 30ae65ff-13b2-482f-b28e-dcad0e5e0da6
+
+	measure Baseline = 0
+		formatString: 0
+		lineageTag: c88cebc3-6eb2-4d3d-8915-121e0e1f2bc4
+
+	measure 'Pontos de Venda Atendidos' = DISTINCTCOUNT(FT_RUPTURA[ID_DIM_PDV])
+		formatString: #,0
+		lineageTag: dbc091e7-8aa4-463a-9445-e634751d4ddc
+
+	measure 'Promotores com Coleta' = DISTINCTCOUNT(FT_RUPTURA[ID_DIM_COLABORADOR])
+		formatString: #,0
+		lineageTag: 40f80ef9-57fc-4174-a801-181366d7fea8
+
+	measure 'Média de PDVs por Promotor' = [Pontos de Venda Atendidos]/[Promotores com Coleta]
+		lineageTag: 2e04f705-6296-4997-a496-b25a212f4a16
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'M Presença' =
+			
+			VAR DataAtual = MAX(DIM_CALENDARIO[Ciclo])
+			RETURN
+			CALCULATE([Produtos Presentes %], FILTER(DIM_CALENDARIO,DIM_CALENDARIO[Ciclo]= DataAtual))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6ffd3844-8038-4e03-a64d-2b62155ea545
+
+	measure 'M-1 Presença' = ```
+			
+			VAR DataAtual = MAX(DIM_CALENDARIO[Ciclo])
+			VAR DataMesAnterior = INT(IF(RIGHT(DataAtual - 1, 2) = "00", LEFT(DataAtual - 1, 4)-1 & "12", DataAtual - 1))
+			RETURN 
+			CALCULATE([Produtos Presentes %], FILTER(DIM_CALENDARIO,DIM_CALENDARIO[Ciclo] = DataAtual-1))
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0100f2f2-1894-4358-a314-b72a3a94231b
+
+	measure 'Var. Último Mês Presença' = ```
+			
+			var calc = ([M Presença] - [M-1 Presença])/[M-1 Presença]
+			var calc2 = IF([M-1 Presença]=0, "--", round(calc,3)*100 & "%")
+			return 
+			IF (calc>0, calc2 & UNICHAR(9650), IF(calc<0, calc2 & UNICHAR(9660), calc2 & UNICHAR(11208)))
+			
+			
+			```
+		lineageTag: c509a335-0d04-4e4e-b15e-4429c74473ce
+
+	measure 'M e M-1 Presença' = ([M Presença] - [M-1 Presença])/[M-1 Presença]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: dd9e49e7-603a-4d5e-a7d2-f221b5212f91
+
+	measure 'M Ruptura' =
+			
+			VAR DataAtual = MAX(DIM_CALENDARIO[Ciclo])
+			RETURN
+			CALCULATE([Produtos Ruptura %], FILTER(DIM_CALENDARIO,DIM_CALENDARIO[Ciclo]= DataAtual))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 35e8b7ee-322d-4d28-b7fe-94e86371afc8
+
+	measure 'M N Cadastro' =
+			
+			VAR DataAtual = MAX(DIM_CALENDARIO[Ciclo])
+			RETURN
+			CALCULATE([Produtos Não Cadastrados %], FILTER(DIM_CALENDARIO,DIM_CALENDARIO[Ciclo]= DataAtual))
+		formatString: 0
+		lineageTag: 7145b5e8-8976-4c36-8e79-bc2fe56115eb
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'M-1 Ruptura' = ```
+			
+			VAR DataAtual = MAX(DIM_CALENDARIO[Ciclo])
+			VAR DataMesAnterior = INT(IF(RIGHT(DataAtual - 1, 2) = "00", LEFT(DataAtual - 1, 4)-1 & "12", DataAtual - 1))
+			RETURN 
+			CALCULATE([Produtos Ruptura %], FILTER(DIM_CALENDARIO,DIM_CALENDARIO[Ciclo] = DataAtual-1))
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9cdb1bcb-dfb3-458a-8dc4-7541f115bba7
+
+	measure 'M-1 N Cadastro' = ```
+			
+			VAR DataAtual = MAX(DIM_CALENDARIO[Ciclo])
+			VAR DataMesAnterior = INT(IF(RIGHT(DataAtual - 1, 2) = "00", LEFT(DataAtual - 1, 4)-1 & "12", DataAtual - 1))
+			RETURN 
+			CALCULATE([Produtos Não Cadastrados %], FILTER(DIM_CALENDARIO,DIM_CALENDARIO[Ciclo] = DataAtual-1))
+			```
+		formatString: 0.00
+		lineageTag: 20bac997-c35b-4cd7-887b-251233204ecb
+
+	measure 'M e M-1 Ruptura' = ([M Ruptura] - [M-1 Ruptura])/[M-1 Ruptura]
+		formatString: 0.0
+		lineageTag: 3d9ccc2d-5d9e-493f-861e-a3e83ebefa8e
+
+	measure 'M e M-1 N Cadastro' = ([M N Cadastro] - [M-1 N Cadastro])/[M-1 N Cadastro]
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: ca4687e2-5baf-4ff9-bf69-5d76682bdbc9
+
+	measure 'Var. Último Mês Ruptura' = ```
+			
+			var calc = ([M Ruptura] - [M-1 Ruptura])/[M-1 Ruptura]
+			var calc2 = IF(calc=1/0, "--", round(calc,3)*100 & "%")
+			return 
+			IF (calc>0, calc2 & UNICHAR(9650), IF(calc<0, calc2 & UNICHAR(9660), calc2 & UNICHAR(11208)))
+			```
+		lineageTag: c4bfff15-8436-4261-9d2f-f24e0b29167c
+
+	measure 'Var. Último Mês Não Cad.' = ```
+			
+			var calc = ([M N Cadastro] - [M-1 N Cadastro])/[M-1 N Cadastro]
+			var calc2 = IF([M-1 N Cadastro]=0, "--", round(calc,3)*100 & "%")
+			return IF (calc>0, calc2 & UNICHAR(9650), IF(calc<0, calc2 & UNICHAR(9660), calc2 & UNICHAR(11208)))
+			
+			```
+		lineageTag: 986bc9b9-f51a-4009-8bd9-36b24db74955
+
+	measure 'Pesquisados por Visita' = divide([Produtos Pesquisados],'MEDIDAS VISITAS'[Visitas Realizadas])
+		formatString: 0.0
+		lineageTag: be620abb-d1bf-4ce5-abe5-4a0464c0ce14
+
+	measure 'Presentes por Visita' = divide([Produtos Presentes],'MEDIDAS VISITAS'[Visitas Realizadas])
+		formatString: 0.0
+		lineageTag: 2db7c5da-c2ad-468b-884e-be0efcd77639
+
+	measure 'Em Ruptura por Visita' = divide([Produtos em Ruptura],'MEDIDAS VISITAS'[Visitas Realizadas])
+		formatString: 0.0
+		lineageTag: 54a842d3-7c14-49c7-afd5-e522968426dc
+
+	measure 'Não Cadastrados por Visita' = divide([Produtos Não Cadastrados],'MEDIDAS VISITAS'[Visitas Realizadas])
+		formatString: 0.0
+		lineageTag: b37f5847-7b2a-4690-aeb0-0773b5edc992
+
+	measure 'Dummy Promotor 1' = 0
+		lineageTag: bcad78c4-dbb1-4e82-8e09-3ec508310a22
+
+		formatStringDefinition =
+				"" & SWITCH (
+				         SELECTEDVALUE('Parametro Promotor'[Parametro Promotor Pedido]),
+				         0, SELECTEDVALUE(DIM_PDV[MACRORREGIONAL]),
+				         1, SELECTEDVALUE(DIM_PDV[REGIONAL]),
+				         2, SELECTEDVALUE(DIM_PDV[ESTADO]),
+				         3, SELECTEDVALUE(DIM_PDV[REDE]),
+				         4, SELECTEDVALUE(DIM_PDV[CANAL_PDV]),
+				         5, SELECTEDVALUE(DIM_PDV[NOME_PDV]),
+				         6, SELECTEDVALUE(DIM_COLABORADOR[NOME_COLABORADOR]),
+				         7, SELECTEDVALUE(DIM_COLABORADOR[COLABORADOR_SUPERIOR]),
+				         SELECTEDVALUE('Parametro Promotor'[Parametro Promotor Pedido])
+				        )
+
+	measure 'Dummy Resposta 1' = 0
+		lineageTag: 91b9c946-5599-4b2f-958f-bde27d1869d6
+
+		formatStringDefinition = "" & SELECTEDVALUE(FT_RUPTURA[MOTIVO_RUPTURA])
+
+	measure 'Ranking Produto Presença' = RANKX(ALL(DIM_PRODUTO[CATEGORIA_PRODUTO]), [Produtos Presentes %])
+		formatString: 0
+		lineageTag: 9fcb5d05-8cef-48f0-9a4b-13b3907e619f
+
+	measure 'Ranking Produto Ruptura' = RANKX(ALL(DIM_PRODUTO[CATEGORIA_PRODUTO]), [Produtos Ruptura %])
+		formatString: 0
+		lineageTag: 9a96694c-d71c-4f8a-8a4d-2203cb284369
+
+	measure 'Dummy Linha de Produto' = 0
+		lineageTag: 78673e69-2af7-48da-9251-cf1b112ff746
+
+		formatStringDefinition = "" & SELECTEDVALUE(DIM_PRODUTO[LINHA_PRODUTO])
+
+	measure 'Ranking Linha Presença' = RANKX(ALL(DIM_PRODUTO[LINHA_PRODUTO]), [Produtos Presentes %])
+		formatString: 0
+		lineageTag: 4b7bb247-a4f8-4600-b266-dff9fca862a5
+
+	measure 'Ranking Linha Ruptura' = RANKX(ALL(DIM_PRODUTO[LINHA_PRODUTO]), [Produtos Ruptura %])
+		formatString: 0
+		lineageTag: aba3672a-e664-49b2-997f-2743b2fe3c19
+
+	measure 'Dummy Super Categoria' = 0
+		lineageTag: ad56ceb2-d90a-4b9d-af7f-5928680ec0b2
+
+		formatStringDefinition = "" & SELECTEDVALUE(DIM_PRODUTO[SUPER_CATEGORIA])
+
+	measure 'Ranking Super Presença' = RANKX(ALL(DIM_PRODUTO[SUPER_CATEGORIA]), [Produtos Presentes %])
+		formatString: 0
+		lineageTag: ee74c7a0-6495-4587-a58d-40f88464587f
+
+	measure 'Ranking Super Ruptura' = RANKX(ALL(DIM_PRODUTO[SUPER_CATEGORIA]), [Produtos Ruptura %])
+		formatString: 0
+		lineageTag: b2e75bfb-df58-49db-bf82-5c77d5cb3630
+
+	measure 'Dummy Produto' = 0
+		lineageTag: cd335311-8391-4833-b089-fc0f05f7582d
+
+		formatStringDefinition =
+				"" & SWITCH (
+				         SELECTEDVALUE('Parâmetro Produto'[Parâmetro Produto Pedido]),
+				         0, SELECTEDVALUE('DIM_PRODUTO'[SUPER_CATEGORIA]),
+				         1, SELECTEDVALUE('DIM_PRODUTO'[CATEGORIA_PRODUTO]),
+				         2, SELECTEDVALUE('DIM_PRODUTO'[LINHA_PRODUTO])
+				        )
+
+	measure '% Acumulada Ruptura: Categoria' =
+			
+			var totalrup = [Total Rupturas]
+			var totalind = [Produtos em Ruptura]
+			var totalsuper = calculate([Produtos em Ruptura],filter('Parâmetro Produto 2','Parâmetro Produto 2'[Parâmetro Produto 2]="Super Categoria"))
+			var totalcat = calculate([Produtos em Ruptura],filter('Parâmetro Produto 2','Parâmetro Produto 2'[Parâmetro Produto 2]="Categoria"))
+			var resumo_super = summarize (all(DIM_PRODUTO),DIM_PRODUTO[SUPER_CATEGORIA],"Total",[Produtos em Ruptura])
+			var resumo_cat = summarize (all(DIM_PRODUTO),DIM_PRODUTO[CATEGORIA_PRODUTO],"Total",[Produtos em Ruptura])
+			var acum_super = sumx(filter(resumo_super, [Produtos em Ruptura]>= totalsuper),[Produtos em Ruptura])
+			var acum_cat = sumx(filter(resumo_cat, [Produtos em Ruptura]>= totalcat),[Produtos em Ruptura])
+			return
+			divide(acum_cat,totalrup)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c596b111-5fbb-4836-8683-2e1d861c98cd
+
+	measure 'Total Rupturas' =
+			
+			var totalsuper = calculate([Produtos em Ruptura],allselected(DIM_PRODUTO),filter('Parâmetro Produto 2','Parâmetro Produto 2'[Parâmetro Produto 2]="Super Categoria"))
+			var totalcat = calculate([Produtos em Ruptura],allselected(DIM_PRODUTO),filter('Parâmetro Produto 2','Parâmetro Produto 2'[Parâmetro Produto 2]="Categoria"))
+			return
+			if (totalsuper > 0, totalsuper, totalcat)
+		formatString: 0
+		lineageTag: 5ed3d098-fe4a-410f-bb36-8b8935c70d82
+
+	measure '% Acumulada Ruptura: Super' =
+			
+			var totalrup = [Total Rupturas]
+			var totalind = [Produtos em Ruptura]
+			var totalsuper = calculate([Produtos em Ruptura],filter('Parâmetro Produto 2','Parâmetro Produto 2'[Parâmetro Produto 2]="Super Categoria"))
+			var totalcat = calculate([Produtos em Ruptura],filter('Parâmetro Produto 2','Parâmetro Produto 2'[Parâmetro Produto 2]="Categoria"))
+			var resumo_super = summarize (all(DIM_PRODUTO),DIM_PRODUTO[SUPER_CATEGORIA],"Total",[Produtos em Ruptura])
+			var resumo_cat = summarize (all(DIM_PRODUTO),DIM_PRODUTO[CATEGORIA_PRODUTO],"Total",[Produtos em Ruptura])
+			var acum_super = sumx(filter(resumo_super, [Produtos em Ruptura]>= totalsuper),[Produtos em Ruptura])
+			var acum_cat = sumx(filter(resumo_cat, [Produtos em Ruptura]>= totalcat),[Produtos em Ruptura])
+			return
+			divide(acum_super,totalrup)
+		formatString: 0%;-0%;0%
+		lineageTag: 0cf351e1-653c-4212-b30d-4def13d3383b
+
+	measure 'Dummy Motivos' = 0
+		lineageTag: 6d7e6a32-f736-414b-ae65-0a3119c5f8cc
+
+		formatStringDefinition = "0"
+
+	measure 'Produtos Ruptura e Não Cadastrado %' = DIVIDE([Produtos Ruptura e Não Cadastrado],[Produtos Pesquisados])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8e7b4ebc-b6d6-4cb3-9a07-9cf97f1293aa
+
+	measure 'Classe ABC Super Categoria' =
+			
+			switch( true(),
+			[% Acumulada Ruptura: Super] > 0.51, "Categorias que não impactam na Ruptura",
+			[% Acumulada Ruptura: Super] > 0.21, "Categorias que impactam pouco na Ruptura",
+			"Categorias mais impactantes na Ruptura")
+		lineageTag: 68ebd527-3c7f-4884-ae68-7405d38f7949
+
+	measure 'Produtos Ruptura e Não Cadastrado' = COUNTA(FT_RUPTURA[RESPOSTA])
+		formatString: 0
+		lineageTag: dd914e7a-8cb3-4de8-a062-19d9850ba80c
+
+	measure 'FiltrarClasseABC Super Categoria' = if(SELECTEDVALUE(classe_categoria[Classe ABC]) = [Classe ABC Super Categoria],1,0)
+		formatString: 0
+		lineageTag: cb578868-e644-4615-8279-a9a00a40d75d
+
+	measure 'Classe ABC Categoria' =
+			
+			switch( true(),
+			[% Acumulada Ruptura: Categoria] > 0.51, "Categorias que não impactam na Ruptura",
+			[% Acumulada Ruptura: Categoria] > 0.21, "Categorias que impactam pouco na Ruptura",
+			"Categorias mais impactantes na Ruptura")
+		lineageTag: f5698f4e-c360-4761-8328-f5c6fbe247c8
+
+	measure 'FiltrarClasseABC Categoria' = if(SELECTEDVALUE(classe_categoria[Classe ABC]) = [Classe ABC Categoria],1,0)
+		formatString: 0
+		lineageTag: 6cba6ea0-efef-43f4-9f86-6ffae562c17d
+
+	measure '% Acumulada Ruptura: Linha' =
+			
+			var totalrup = [Total Rupturas]
+			var totalind = [Produtos em Ruptura]
+			var totalinha = calculate([Produtos em Ruptura],filter('Parâmetro Produto 2','Parâmetro Produto 2'[Parâmetro Produto 2]="Linha de Produto"))
+			var resumo_linha = summarize (all(DIM_PRODUTO),DIM_PRODUTO[LINHA_PRODUTO],"Total",[Produtos em Ruptura])
+			var acum_linha = sumx(filter(resumo_linha, [Produtos em Ruptura]>= totalinha),[Produtos em Ruptura])
+			return
+			divide(acum_linha,totalrup)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 5926c8fc-9a0b-4430-bbb2-d1384b60cabf
+
+	measure 'Classe ABC Linha' =
+			
+			switch( true(),
+			[% Acumulada Ruptura: Linha] > 0.51, "Categorias que não impactam na Ruptura",
+			[% Acumulada Ruptura: Linha] > 0.21, "Categorias que impactam pouco na Ruptura",
+			"Categorias mais impactantes na Ruptura")
+		lineageTag: ed9b6a0c-aa35-47c7-812c-7846890a7aea
+
+	measure 'FiltrarClasseABC Linha' = if(SELECTEDVALUE(classe_categoria[Classe ABC]) = [Classe ABC Linha],1,0)
+		formatString: 0
+		lineageTag: b7906629-5636-4fe7-87f5-62e6c91ad390
+
+	measure 'Comparação Periodos' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = MIN('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = MAX('DIM CALENDARIO AUX 2'[Ciclo])
+			RETURN
+			IF(
+			    vMesEixo >= vMesPrimeiro && vMesEixo <= vMesUltimo,
+			    [Ymax]+0.1
+			)
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: d418bafb-1993-4ede-8830-8f58ed5912e1
+
+	measure Ymax =
+			CALCULATE(
+			    MAXX(
+			        VALUES(DIM_CALENDARIO[Ciclo]), [depara PRN]), ALLSELECTED(DIM_CALENDARIO))
+		lineageTag: 3c183aea-cbb3-421d-96b4-4accac2c9211
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Ymin =
+			CALCULATE(
+			    MINX(
+			        VALUES(DIM_CALENDARIO[Ciclo]), [Produtos Presentes %]), all(DIM_CALENDARIO))
+		lineageTag: 89aed4dd-bf55-4e8b-8b68-d45ab207181e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Comparação primeiro mes' = ```
+			
+			VAR vmes = min('DIM CALENDARIO AUX'[Ciclo])
+			return 
+			calculate(
+			    [Produtos Presentes %],
+			    all(DIM_CALENDARIO), DIM_CALENDARIO[Ciclo]= vmes)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 10d41ba3-7232-427b-a944-08f900f874cc
+
+	measure 'Comparação último mes' = ```
+			
+			VAR vmes = min('DIM CALENDARIO AUX 2'[Ciclo])
+			return 
+			calculate(
+			    [Produtos Presentes %],
+			    all(DIM_CALENDARIO), DIM_CALENDARIO[Ciclo]= vmes)
+			```
+		lineageTag: f95fcc60-ce55-4733-ba87-1d9812d2df07
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Comparação Periodos 2' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = MIN('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = MAX('DIM CALENDARIO AUX 2'[Ciclo])
+			RETURN
+			IF(
+			    vMesEixo = vMesPrimeiro || vMesEixo = vMesUltimo,
+			    [Ymax]+0.1
+			)
+			
+			```
+		lineageTag: de3d1436-0369-4919-b0ff-ff16fd383425
+
+		formatStringDefinition = ```
+				var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+				var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+				var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+				VAR vc1 = 
+				    CALCULATE([depara PRN],
+				        DIM_CALENDARIO[Ciclo] = vMesPrimeiro, ALL(DIM_CALENDARIO)
+				    )
+				VAR vc2 = 
+				    CALCULATE([depara PRN],
+				        DIM_CALENDARIO[Ciclo] = vMesUltimo, all(DIM_CALENDARIO)
+				    )
+				return
+				"""" &
+				IF( SELECTEDVALUE(DIM_CALENDARIO[Ciclo]) = MAX('DIM CALENDARIO AUX 2'[Ciclo]),
+				FORMAT((vc2-vc1)/vc1, "+0.0% "&UNICHAR(9650)&" ;-0.0% "&UNICHAR(9660)),
+				BLANK()
+				)
+				& """"
+				```
+
+	measure 'Ymax Lim' = [Ymax]+0.20
+		lineageTag: e2dbddd4-46df-4dff-99bc-1c9b19f29f68
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Comparação Periodos 3' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+			VAR vc1 = 
+			    CALCULATE([depara PRN],
+			        DIM_CALENDARIO[Ciclo] = vMesPrimeiro, all(DIM_CALENDARIO)
+			    )
+			VAR vc2 = 
+			    CALCULATE([depara PRN],
+			        DIM_CALENDARIO[Ciclo] = vMesUltimo, all(DIM_CALENDARIO)
+			    )
+			RETURN [depara PRN sinal]*(vc2-vc1)/vc1
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8785011b-f1cd-4f71-94d5-2e24c08bc12d
+
+	measure '% Produtos Presentes' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+			VAR vc1 = 
+			    CALCULATE([Produtos Presentes %],
+			        DIM_CALENDARIO[Ciclo] = vMesPrimeiro, all(DIM_CALENDARIO)
+			    )
+			RETURN vc1
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 5e466ef7-1ef5-42a9-a115-b89099e089d0
+
+	measure '% Produtos em Ruptura' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+			VAR vc1 = 
+			    CALCULATE([Produtos Ruptura %],
+			        DIM_CALENDARIO[Ciclo] = vMesPrimeiro, all(DIM_CALENDARIO)
+			    )
+			RETURN vc1
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7a8f918d-541c-433b-8157-1850ea7a0d60
+
+	measure '% Não Cadastrados' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+			VAR vc1 = 
+			    CALCULATE([Produtos Não Cadastrados %],
+			        DIM_CALENDARIO[Ciclo] = vMesPrimeiro, all(DIM_CALENDARIO)
+			    )
+			RETURN vc1
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 786b2fd1-0511-4802-986a-5b66f799cc99
+
+	measure '%  Produtos Presentes' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+			VAR vc1 = 
+			    CALCULATE([Produtos Presentes %],
+			        DIM_CALENDARIO[Ciclo] = vMesUltimo, all(DIM_CALENDARIO)
+			    )
+			RETURN vc1
+			
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 85e9d776-c710-42b7-9ca7-59faeb5d9577
+
+	measure '%  Produtos em Ruptura' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+			VAR vc1 = 
+			    CALCULATE([Produtos Ruptura %],
+			        DIM_CALENDARIO[Ciclo] = vMesUltimo, all(DIM_CALENDARIO)
+			    )
+			RETURN vc1
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: fc2abe6d-4877-4c2c-9ff5-69f977145c86
+
+	measure '%  Não Cadastrados' = ```
+			
+			var vMesEixo = MAX(DIM_CALENDARIO[Ciclo])
+			var vMesPrimeiro = SELECTEDVALUE('DIM CALENDARIO AUX'[Ciclo])
+			var vMesUltimo = SELECTEDVALUE('DIM CALENDARIO AUX 2'[Ciclo])
+			VAR vc1 = 
+			    CALCULATE([Produtos Não Cadastrados %],
+			        DIM_CALENDARIO[Ciclo] = vMesUltimo, all(DIM_CALENDARIO)
+			    )
+			RETURN vc1
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 32b7c86c-8dcd-4302-90b6-b2811405490e
+
+	measure 'Var p2 presença' = ```
+			([%  Produtos Presentes] - [% Produtos Presentes])*100
+			
+			```
+		lineageTag: 8a5055c1-7ca0-409a-bce4-4bdbf018ba5c
+
+		formatStringDefinition = ```
+				var calc = ([%  Produtos Presentes] - [% Produtos Presentes])*100
+				var calc2 = FORMAT( calc, "+0.0 p.p.;0.0 p.p.")
+				return 
+				"""" &
+				IF (calc>0, calc2 & UNICHAR(9650), IF(calc<0, calc2 & UNICHAR(9660), calc2 & UNICHAR(11208)))
+				&  """"
+				```
+
+	measure 'Var p2 ruptura' =
+			
+			var calc = ([%  Produtos em Ruptura] - [% Produtos em Ruptura])*100
+			var calc2 = FORMAT( calc, "+0.0 p.p.;-0.0 p.p.")
+			return calc
+		lineageTag: b00e871d-21e3-4335-924e-2a433b82d602
+
+		formatStringDefinition = ```
+				var calc = ([%  Produtos em Ruptura] - [% Produtos em Ruptura])*100
+				var calc2 = FORMAT( calc, "+0.0 p.p.;0.0 p.p.")
+				return 
+				"""" &
+				IF (calc>0, calc2 & UNICHAR(9650), IF(calc<0, calc2 & UNICHAR(9660), calc2 & UNICHAR(11208)))
+				&  """"
+				```
+
+	measure 'Var p2 não cad' = ```
+			
+			var calc = ([%  Não Cadastrados] - [% Não Cadastrados])*100
+			var calc2 = FORMAT( calc, "+0.0 p.p.;-0.0 p.p.")
+			return 
+			calc
+			```
+		lineageTag: 99784b8c-3e16-44b5-aea3-cb4e6548afc4
+
+		formatStringDefinition = ```
+				var calc = ([%  Não Cadastrados] - [% Não Cadastrados])*100
+				var calc2 = FORMAT( calc, "+0.0 p.p.;0.0 p.p.")
+				return 
+				"""" &
+				IF (calc>0, calc2 & UNICHAR(9650), IF(calc<0, calc2 & UNICHAR(9660), calc2 & UNICHAR(11208)))
+				&  """"
+				```
+
+	measure 'Pareto %' =
+			
+			var vruptotal = CALCULATE([Produtos em Ruptura], all(DIM_PRODUTO[SUPER_CATEGORIA]))
+			return DIVIDE([% Acumulada Ruptura: Super], vruptotal)
+		formatString: 0%;-0%;0%
+		lineageTag: 4d03820b-1518-4cee-8ba8-e84d9f42f1ee
+
+	measure 'cor pareto' = IF([Acumulado Ruptura]<=0.6, "#E15759", IF([Acumulado Ruptura]<=0.90, "#F28E2B", "#00A2B3"))
+		lineageTag: 99b09668-2426-40bb-b617-9fb98abd37de
+
+	measure 'waffle 1' = ROUND([do total]*100, 0)
+		formatString: 0
+		lineageTag: 48035328-e4aa-4159-8807-4d03cc405393
+
+	measure 'waffle 1c' = 100-[waffle 1]
+		formatString: 0
+		lineageTag: 54066cbe-af01-426f-9a15-8774fde6f619
+
+	measure 'teste waffle 3' = 30
+		formatString: 0
+		lineageTag: 1dda3122-d465-478f-b48d-f628eae9676f
+
+	measure 'depara PRN' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro PRN'[Parâmetro PRN Pedido]), 
+			0, [Produtos Presentes %],
+			1, [Produtos Ruptura %],
+			2, [Produtos Não Cadastrados %])
+			
+			```
+		formatString: 0
+		lineageTag: 9cc4492d-9fe4-4762-aee2-ed4d5a1184f1
+
+	measure 'depara PRN sinal' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro PRN'[Parâmetro PRN Pedido]), 
+			0, 1,
+			1, -1,
+			2, -1)
+			```
+		formatString: 0
+		lineageTag: b687bc40-3d8e-40ba-b34b-d2c81c05558d
+
+	measure 'Acumulado Ruptura' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, [% Acumulada Ruptura: Super],
+			1, [% Acumulada Ruptura: Categoria],
+			2, [% Acumulada Ruptura: Linha])
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: a16a91cf-3a53-4ef5-a2ac-bcf19f8029f9
+
+	measure 'Produtos pareto vermelho' = ```
+			
+			var scl = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, [Super Categorias],
+			1, [Categorias],
+			2, [Linhas de Produto])
+			var vt = IF([Acumulado Ruptura]<=0.6, "#E15759", IF([Acumulado Ruptura]<=0.90, "#F28E2B", "#00A2B3"))
+			return
+			CALCULATE([Acumulado Ruptura], FILTER(ALLSELECTED(DIM_PRODUTO), [Acumulado Ruptura]<=0.6))
+			```
+		formatString: 0
+		lineageTag: d71b328c-0bec-4a1e-87f8-983912afb913
+
+	measure 'Produtos pareto vermelho ss' = ```
+			
+			var scl = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, [Super Categorias],
+			1, [Categorias],
+			2, [Linhas de Produto])
+			var vt = IF([Acumulado Ruptura]<=0.6, "#E15759", IF([Acumulado Ruptura]<=0.90, "#F28E2B", "#00A2B3"))
+			return
+			[Itens com Alta Ruptura]
+			
+			```
+		lineageTag: f87fac3e-597b-4cd5-adc9-98981ebf39e2
+
+	measure 'Itens com Alta Ruptura' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]<=0.6,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)))
+			
+			```
+		formatString: 0
+		lineageTag: e0d7f820-97f0-4ed5-a685-fbda90da6eb5
+
+	measure 'responsáveis por ~30% da ruptura total' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)))
+			
+			```
+		lineageTag: 736bb58e-2152-4fbc-bf9b-9f23dbf1bfce
+
+		formatStringDefinition = ```
+				var p1 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+				0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)),
+				1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)),
+				2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)))
+				
+				
+				var p2 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+				0, "super categoria(s)",
+				1, "categoria(s)",
+				2, "linha(s) de produto")
+				
+				
+				
+				return
+				"""" &
+				p1 & " " & p2
+				& """"
+				```
+
+	measure 'depara scl dim azul' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]>0.9,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)))
+			
+			```
+		formatString: 0
+		lineageTag: 06efbb77-1af1-4f23-990d-d721563f7653
+
+	measure 'responsáveis por ~60% da ruptura total' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]<=0.6,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)))
+			```
+		lineageTag: e457e4d0-246f-4c65-a3d6-1f580233a852
+
+		formatStringDefinition = ```
+				var p1 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+				0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]<=0.6,1,0)),
+				1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)),
+				2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)))
+				
+				
+				var p2 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+				0, "super categoria(s)",
+				1, "categoria(s)",
+				2, "linha(s) de produto")
+				
+				
+				
+				return
+				"""" &
+				p1 & " " & p2
+				& """"
+				```
+
+	measure 'do total' = ```
+			
+			
+			var c1 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]<=0.6,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]<=0.6,1,0)))
+			
+			var c2 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, [Super Categorias],
+			1, [Categorias],
+			2, [Linhas de Produto])
+			
+			return divide(c1,c2)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a11d1f9d-a421-4c2d-a349-0c87b6743616
+
+	measure 'do  total' = ```
+			
+			
+			var c1 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]>0.6 && [Acumulado Ruptura]<=0.9,1,0)))
+			
+			var c2 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, [Super Categorias],
+			1, [Categorias],
+			2, [Linhas de Produto])
+			
+			return divide(c1,c2)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 2d7cb1ba-f7f5-4030-92de-e4d70113fec3
+
+	measure 'waffle 2' = ROUND([do  total]*100, 0)
+		lineageTag: 3982bc20-380c-4d99-ae82-4710aa5361df
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'waffle 2c' = 100-[waffle 2]
+		lineageTag: 7a0650e6-99c6-4483-8a45-1f9c080d1e8e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'responsáveis por ~10% da ruptura total' = ```
+			SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]>0.9,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)))
+			```
+		lineageTag: aee5a7a9-d3be-4945-85b3-7bb19e9b3f68
+
+		formatStringDefinition = ```
+				var p1 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+				0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]>0.9,1,0)),
+				1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)),
+				2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)))
+				
+				
+				var p2 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+				0, "super categoria(s)",
+				1, "categoria(s)",
+				2, "linha(s) de produto")
+				
+				
+				
+				return
+				"""" &
+				p1 & " " & p2
+				& """"
+				```
+
+	measure 'do   total' = ```
+			
+			
+			var c1 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, SUMX(VALUES(DIM_PRODUTO[SUPER_CATEGORIA]), IF([Acumulado Ruptura]>0.9,1,0)),
+			1, SUMX(VALUES(DIM_PRODUTO[CATEGORIA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)),
+			2, SUMX(VALUES(DIM_PRODUTO[LINHA_PRODUTO]), IF([Acumulado Ruptura]>0.9,1,0)))
+			
+			var c2 = SWITCH(SELECTEDVALUE('Parâmetro SCL'[Parâmetro SCL Pedido]), 
+			0, [Super Categorias],
+			1, [Categorias],
+			2, [Linhas de Produto])
+			
+			return divide(c1,c2)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f3af245d-d4dd-4744-b339-84ab532a97fb
+
+	measure 'waffle 3' = ROUND([do   total]*100, 0)
+		lineageTag: 57f24f74-14e7-4a48-8643-d91089b7ba60
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'waffle 3c' = 100-[waffle 3]
+		lineageTag: 9ba2cdb9-4199-47f4-b560-7d020e551da4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Classe = IF([Acumulado Ruptura]<=0.6, "Classe A (60%)", IF([Acumulado Ruptura]<=0.90, "Classe B (30%)", "Classe C (10%)"))
+		lineageTag: 652ac8cb-47e8-4bfc-b4a5-182c13478c88
+
+	measure 'teste 1' = 25
+		formatString: 0
+		lineageTag: 0dd7e489-a13c-454a-9b5e-77d3e7962a3b
+
+	measure 'teste 2' = 100
+		formatString: 0
+		lineageTag: e487e4fb-f783-46f5-8b8a-639802762729
+
+	measure 'Motivos Ruptura %' = SUM(FT_RUPTURA[RUPTURA])/CALCULATE(sum(FT_RUPTURA[RUPTURA]), ALLSELECTED(FT_RUPTURA))
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: b66da0ac-4500-446a-b0ac-5a61c56544fc
+
+	partition 'MEDIDAS VISITAS' = m
+		mode: import
+		source =
+				let
+				    Fonte = #table(1,{1,2,3}),
+				    #"Removed Columns" = Table.RemoveColumns(Fonte,{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

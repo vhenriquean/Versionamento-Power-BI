@@ -1,0 +1,48 @@
+table 'Parâmetro Mes Semana'
+	lineageTag: 6fe0b339-43d8-48e4-aa3c-48cc8a83c214
+
+	column 'Parâmetro Mes Semana'
+		lineageTag: b746a586-b547-44c0-9ceb-412b5eb5c152
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Mes Semana Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Mes Semana Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Mes Semana Campos'
+		isHidden
+		lineageTag: 5bd51dc3-fc07-4c4a-a410-44d5ed0c9f8d
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Mes Semana Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Mes Semana Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: dbe92700-ddd3-4203-aff2-4ace2f8b86ea
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Mes Semana' = calculated
+		mode: import
+		source =
+				{
+				    ("Mês", NAMEOF('DIM_CALENDARIO'[Mes e Ano Coleta]), 0),
+				    ("Semana", NAMEOF('DIM_CALENDARIO'[Semana]), 1)
+				}
+
+	annotation PBI_Id = 5213c61f86724c048b6d238ff5508e2a
+

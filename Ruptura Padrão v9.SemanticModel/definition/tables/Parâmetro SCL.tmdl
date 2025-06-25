@@ -1,0 +1,49 @@
+table 'Parâmetro SCL'
+	lineageTag: 5c393f84-6d30-446e-a601-fe606acb122d
+
+	column 'Parâmetro SCL'
+		lineageTag: 4166bb01-0713-4429-864d-1f4e5dc0a4b5
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro SCL Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro SCL Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro SCL Campos'
+		isHidden
+		lineageTag: 5b1996ad-2ca0-428e-a2fb-57803fce2b73
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro SCL Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro SCL Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: faa1fdc7-3890-4cd6-831c-a0ad506fb5ba
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro SCL' = calculated
+		mode: import
+		source =
+				{
+				    ("Super Categoria", NAMEOF('DIM_PRODUTO'[SUPER_CATEGORIA]), 0),
+				    ("Categoria", NAMEOF('DIM_PRODUTO'[CATEGORIA_PRODUTO]), 1),
+				    ("Linha de Produto", NAMEOF('DIM_PRODUTO'[LINHA_PRODUTO]), 2)
+				}
+
+	annotation PBI_Id = 87e09c9b82c844e69e1c7124cd726ca5
+

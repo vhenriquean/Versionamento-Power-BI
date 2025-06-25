@@ -1,0 +1,58 @@
+table 'Parâmetro Medidas'
+	lineageTag: 43228107-a879-4500-a38b-9ccbe0b291ec
+
+	column 'Parâmetro Medidas'
+		lineageTag: 30a5b228-724c-4d04-8dd0-8756dced4289
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Medidas Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Medidas Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Medidas Campos'
+		isHidden
+		lineageTag: a4312239-48cc-4f1b-b159-ca6d116d8dec
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Medidas Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Medidas Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 38fbd952-f677-4772-b502-02239c594c76
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Medidas' = calculated
+		mode: import
+		source =
+				{
+				    ("Produtos Presentes", NAMEOF('MEDIDAS VISITAS'[Produtos Presentes]), 0),
+				    ("Produtos Presentes %", NAMEOF('MEDIDAS VISITAS'[Produtos Presentes %]), 1),
+				    ("Produtos em Ruptura", NAMEOF('MEDIDAS VISITAS'[Produtos em Ruptura]), 2),
+				    ("Produtos Ruptura %", NAMEOF('MEDIDAS VISITAS'[Produtos Ruptura %]), 3),
+				    ("Produtos Não Cadastrados", NAMEOF('MEDIDAS VISITAS'[Produtos Não Cadastrados]), 4),
+				    ("Produtos Não Cadastrados %", NAMEOF('MEDIDAS VISITAS'[Produtos Não Cadastrados %]), 5),
+				    ("Média de PDVs por Promotor", NAMEOF('MEDIDAS VISITAS'[Média de PDVs por Promotor]), 6),
+				    ("Pontos de Venda Atendidos", NAMEOF('MEDIDAS VISITAS'[Pontos de Venda Atendidos]), 7),
+				    ("Presentes por Visita", NAMEOF('MEDIDAS VISITAS'[Presentes por Visita]), 8),
+				    ("Em Ruptura por Visita", NAMEOF('MEDIDAS VISITAS'[Em Ruptura por Visita]), 9),
+				    ("Não Cadastrados por Visita", NAMEOF('MEDIDAS VISITAS'[Não Cadastrados por Visita]), 10),
+				    ("Pesquisados por Visita", NAMEOF('MEDIDAS VISITAS'[Pesquisados por Visita]), 11)
+				}
+
+	annotation PBI_Id = 390d3d8c3db44ae49970364c3d162ebc
+

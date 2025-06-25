@@ -1,0 +1,27 @@
+table 'Parametro Idioma'
+	lineageTag: 6ecdedbe-1075-4f03-a006-0825430988d6
+
+	column Idioma
+		lineageTag: 4623515b-3e93-4b22-853b-3d3f8f311803
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		formatString: 0
+		lineageTag: 8c2d7166-ccfb-4842-9c3a-9be5ca3e79d3
+		summarizeBy: count
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametro Idioma' = calculated
+		mode: import
+		source =
+				{ ("pt-BR", 0),
+				    ("en-US", 1),
+				    ("es-ES", 2)}
+
+	annotation PBI_Id = 2d17cdce3bb741f6b8571afdca768b0b
+

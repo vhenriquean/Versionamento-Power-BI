@@ -1,0 +1,24 @@
+table 'DATA ATUALIZAÇÃO'
+	lineageTag: fd1a2888-5810-48e7-952d-70f86d7261b2
+
+	column 'Data Hora Atualização'
+		dataType: string
+		lineageTag: dbd74a9e-3503-4e11-bba8-ea7af09ba33c
+		summarizeBy: none
+		sourceColumn: Data Hora Atualização
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DATA ATUALIZAÇÃO' = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = DateTime.LocalNow(),
+				    #"Convertido para Tabela" = #table(1, {{#"Tipo Alterado"}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Convertido para Tabela",{{"Column1", "Data Hora Atualização"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_ResultType = Table
+

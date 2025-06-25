@@ -1,0 +1,78 @@
+table 'Parâmetro Dim PDV 1'
+	lineageTag: 59d55301-8cce-4023-81de-b8db1b8de235
+
+	column 'Parâmetro Dim PDV 1'
+		lineageTag: bd49aa6b-60fc-40d9-b0ef-965d941d4de2
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Dim PDV 1 Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Dim PDV 1 Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Dim PDV 1 Campos'
+		isHidden
+		lineageTag: afa29d72-e7d3-4cce-9666-7d7c70291cc2
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Dim PDV 1 Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Dim PDV 1 Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 10bb1166-ec69-4efc-8624-721c464d4818
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		isHidden
+		lineageTag: f743f0bd-9ee9-4b06-9c3f-6e3bbff99343
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Dim PDV 1' = calculated
+		mode: import
+		source =
+				{
+				    ("Macrorregional", NAMEOF('DIM_PDV'[MACRORREGIONAL]), 0,"pt-BR"),
+				    ("Regional", NAMEOF('DIM_PDV'[REGIONAL]), 1,"pt-BR"),
+				    ("Estado", NAMEOF('DIM_PDV'[ESTADO]), 2,"pt-BR"),
+				    ("Rede", NAMEOF('DIM_PDV'[REDE]), 3,"pt-BR"),
+				    ("Canal", NAMEOF('DIM_PDV'[CANAL_PDV]), 4,"pt-BR"),
+				    ("Bandeira", NAMEOF('DIM_PDV'[BANDEIRA]), 5,"pt-BR"),
+				    ("Tipo PDV", NAMEOF('DIM_PDV'[TIPO_PDV]), 6,"pt-BR"),
+				    ("Perfil PDV", NAMEOF('DIM_PDV'[PERFIL_PDV]), 7,"pt-BR"),
+				        ("Macrorregional", NAMEOF('DIM_PDV'[MACRORREGIONAL]), 0,"es-ES"),
+				    ("Regional", NAMEOF('DIM_PDV'[REGIONAL]), 1,"es-ES"),
+				    ("División Territorial", NAMEOF('DIM_PDV'[ESTADO]), 2,"es-ES"),
+				    ("Red", NAMEOF('DIM_PDV'[REDE]), 3,"es-ES"),
+				    ("Canal", NAMEOF('DIM_PDV'[CANAL_PDV]), 4,"es-ES"),
+				    ("Cadena", NAMEOF('DIM_PDV'[BANDEIRA]), 5,"es-ES"),
+				    ("Tipo PDV", NAMEOF('DIM_PDV'[TIPO_PDV]), 6,"es-ES"),
+				    ("Perfil PDV", NAMEOF('DIM_PDV'[PERFIL_PDV]), 7,"es-ES"),
+				            ("Macrorregional", NAMEOF('DIM_PDV'[MACRORREGIONAL]), 0,"en-US"),
+				    ("Regional", NAMEOF('DIM_PDV'[REGIONAL]), 1,"en-US"),
+				    ("State", NAMEOF('DIM_PDV'[ESTADO]), 2,"en-US"),
+				    ("Chain", NAMEOF('DIM_PDV'[REDE]), 3,"en-US"),
+				    ("Canal", NAMEOF('DIM_PDV'[CANAL_PDV]), 4,"en-US"),
+				    ("Banner", NAMEOF('DIM_PDV'[BANDEIRA]), 5,"en-US"),
+				    ("POS Type", NAMEOF('DIM_PDV'[TIPO_PDV]), 6,"en-US"),
+				    ("POS Profile", NAMEOF('DIM_PDV'[PERFIL_PDV]), 7,"en-US")
+				}
+
+	annotation PBI_Id = 0ddac977cd4c49c0822c97ca859615d3
+

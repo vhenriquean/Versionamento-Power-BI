@@ -1,0 +1,33 @@
+table 'Botão Colaborador'
+	lineageTag: a891168e-c528-477c-9d14-c2f812207a89
+
+	column Colab
+		lineageTag: f702bb75-3926-4d2c-8507-f9f303c8939a
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		isHidden
+		lineageTag: 28f5d909-06a9-40d0-ae7e-1db733143a99
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		isHidden
+		formatString: 0
+		lineageTag: 10263dfd-231e-4b71-9fc1-6f5d49d017a3
+		summarizeBy: count
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Botão Colaborador' = calculated
+		mode: import
+		source = {("Colaboradores","pt-BR",0), ("Empleados","es-ES",0), ("Employees","en-US",0)}
+
+	annotation PBI_Id = 935e90abeaf94029ba6b1ed1c16ca9a3
+

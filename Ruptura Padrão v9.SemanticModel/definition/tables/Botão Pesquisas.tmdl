@@ -1,0 +1,32 @@
+table 'Botão Pesquisas'
+	lineageTag: 38991fa1-f06d-4941-a4e0-def1e532506a
+
+	column Pesquisa
+		lineageTag: c6733795-2b91-430c-a8e6-fced7028cb56
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: 577f62e6-e8dc-4e53-bac1-e8b9e5360019
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value3
+		formatString: 0
+		lineageTag: 0649a4b9-44c6-443c-a9b2-39dde0921920
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Botão Pesquisas' = calculated
+		mode: import
+		source = {("Pesquisas - Geral","pt-BR",0),	("Encuestas - General","es-ES",0),	("Surveys - General","en-US",0)}
+
+	annotation PBI_Id = 6fd6e3306cf245e495bc1882255a74fd
+

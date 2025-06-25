@@ -1,0 +1,49 @@
+table 'Parâmetro Evolutivo 1'
+	lineageTag: e2af4399-96ba-4be7-bfd9-4a7a3e3f17a4
+
+	column 'Parâmetro Evolutivo 1'
+		lineageTag: 00032cb9-4494-46e6-8f0d-ec5dbf0f6d38
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Evolutivo 1 Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Evolutivo 1 Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Evolutivo 1 Campos'
+		isHidden
+		lineageTag: 4317908b-9a62-4623-8f45-6b1ec7823c28
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Evolutivo 1 Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Evolutivo 1 Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: f49dd1ce-7eed-4f65-b2d2-448c3ae5bf41
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Evolutivo 1' = calculated
+		mode: import
+		source =
+				{
+				    ("Trimestre", NAMEOF('DIM_CALENDARIO'[Tri e Ano Coleta]), 0),
+				    ("Mês", NAMEOF('DIM_CALENDARIO'[Mes e Ano Coleta]), 1),
+				    ("Semana", NAMEOF('DIM_CALENDARIO'[Ordenar semana]), 2)
+				}
+
+	annotation PBI_Id = bda66ae25f0047b3abf51eaaae3aecc0
+

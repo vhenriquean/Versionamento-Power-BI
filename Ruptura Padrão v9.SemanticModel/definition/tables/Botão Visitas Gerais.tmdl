@@ -1,0 +1,35 @@
+table 'Botão Visitas Gerais'
+	lineageTag: b8115c3d-6280-4afe-924e-9ce33b5c2433
+
+	column Visita
+		lineageTag: 40b82d79-6ef8-4899-92ac-1e5af0d91ee5
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: c038b60d-4cad-4330-a342-9b34fc6e0c0b
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value3
+		formatString: 0
+		lineageTag: fdf7d89f-0470-4473-90b2-50eb12154295
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Botão Visitas Gerais' = calculated
+		mode: import
+		source = ```
+				{("Visitas - Geral","pt-BR",0),	("Visitas - General","es-ES",0),	("Visits - General","en-US",0)}
+				
+				```
+
+	annotation PBI_Id = 47062aa3007e43dd87c5f55c47b8deca
+

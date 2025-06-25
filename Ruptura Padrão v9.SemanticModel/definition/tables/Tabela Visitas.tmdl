@@ -1,0 +1,67 @@
+table 'Tabela Visitas'
+	lineageTag: 6946197a-7c6d-4eaa-9a65-05c70d34ab6c
+
+	column Título
+		lineageTag: f10d0bf7-6867-4419-97de-d359baf89595
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: be230b6d-3ade-4164-be4c-4b6aba6c2b8a
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		formatString: 0
+		lineageTag: b02d80b8-1063-4f4d-a758-52c50d08ca2b
+		summarizeBy: count
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tabela Visitas' = calculated
+		mode: import
+		source = ```
+				{("Presença e Ruptura","pt-BR",0), ("--","es-ES",0), ("--","en-US",0),
+				("Médias de Produtos","pt-BR",1), ("P--","es-ES",1), ("--","en-US",1),
+				("Evolutivo Mensal","pt-BR",2), ("--","es-ES",2), ("--","en-US",2),
+				("Top 5 Presença","pt-BR",3), ("--","es-ES",3), ("--","en-US",3),
+				("Top 5 Ruptura","pt-BR",4), ("--","es-ES",4), ("--","en-US",4),
+				("Cobertura de Coletas","pt-BR",5), ("--","es-ES",5), ("--","en-US",5),
+				("Heatmap % Visitas Realizadas   ","pt-BR",6), ("Heatmap % Visitas Realizadas   ","es-ES",6), ("Heatmap % Completed Visits    ","en-US",6),
+				("Evolução % Visitas Realizadas       ","pt-BR",7), ("Evolución % Visitas Realizadas       ","es-ES",7), ("Evolution % Completed Visits        ","en-US",7),
+				("Ranking Justificativas           ","pt-BR",8), ("Ranking Justificaciones            ","es-ES",8), ("Ranking of Justifications          ","en-US",8),
+				("Média Total por Colab.","pt-BR",9), ("Promedio Total por Empl.","es-ES",9), ("Total Average by Empl.","en-US",9),
+				("Média de Visitas por Colab.","pt-BR",10), ("Promedio de Visitas por Empl.","es-ES",10), ("Average Visits by Empl.","en-US",10),
+				("Jornada Completa","pt-BR",11), ("Jornada Completa","es-ES",11), ("All Journey","en-US",11),
+				("Jornada no PDV","pt-BR",12), ("Jornada en PDV","es-ES",12), ("Journey in POS","en-US",12),
+				("Deslocamento","pt-BR",13), ("Desplazamiento","es-ES",13), ("Commuting","en-US",13), 
+				("% Visitas Realizadas por","pt-BR",14), ("% Visitas Realizadas por","es-ES",14), ("% Completed Visits by    ","en-US",14),
+				("Análise de Dispersão - Representatividade (Visitas Planejadas) vs. Atendimento (% Visitas Realizadas)  ","pt-BR",15), ("Análisis de Dispersión - Representatividad (Visitas Planificadas) vs. Atendimiento (% Visitas Realizadas)  ","es-ES",15), ("Scatterplot analysis - Representativeness (Planned Visits) vs. Attendance (% Completed Visits)             ","en-US",15),
+				("Evolução de Aproveitamento de Roteiro                              ","pt-BR",16), ("Evolución de Aprovechamiento de Itinerario                          ","es-ES",16), ("Evolution of Optimizing the Itinerary                                     ","en-US",16),
+				("Heatmap % Aproveitamento de Roteiro      ","pt-BR",17), ("Heatmap % Aprovechamiento de Itinerario","es-ES",17), ("Heatmap % Optimizing the Itinerary          ","en-US",17),
+				("Ranking de Visitas, PDVs com Atendimento e Roteiros","pt-BR",18), ("Ranking de Visitas, PDVs con Atendimiento y Itinerarios","es-ES",18), ("Ranking of Visits, Stores with Visits, and Roadmaps      ","en-US",18),
+				("Ranking de Visitas e Roteiro          ","pt-BR",19), ("Ranking de Visitas y Itinerario          ","es-ES",19), ("Ranking of Visits and Itinerary         ","en-US",19),
+				("Baixa Representatividade / Alto Atendimento","pt-BR",20), ("Baja Representatividad / Alto Atendimiento","es-ES",20), ("Low Representativeness / High Attendance","en-US",20),
+				("Alta Representatividade / Alto Atendimento","pt-BR",21), ("Alta Representatividad / Alto Atendimiento","es-ES",21), ("High Representativeness / High Attendance","en-US",21),
+				("Baixa Representatividade / Baixo Atendimento","pt-BR",22), ("Baja Representatividad / Bajo Atendimiento","es-ES",22), ("Low Representativeness / Low Attendance","en-US",22),
+				("Alta Representatividade / Baixo Atendimento","pt-BR",23), ("Alta Representatividad / Bajo Atendimiento","es-ES",23), ("High Representativeness / Low Attendance","en-US",23),
+				("% Aproveitamento por","pt-BR",24), ("% Aprovechamiento por","es-ES",24), ("% Optimizing by            ","en-US",24),
+				("A aba de Tabela Dinâmica tem o objetivo de apresentar todos os dados em tabelas ou gráficos, onde podemos customizar acrescentando o excluindo colunas previamente selecionadas, de acordo com a necessidade.
+				O Power BI tem limite de download de 150 mil linhas;
+				Para a edição da tabela abaixo, clique no botão personalizar esse relatório no lado superior direito, como está na imagem:","pt-BR",25),
+				("La hoja de Tabla Dinámica tiene el objetivo la presentación de todos los datos en tablas o gráficos, donde se permite customizar agregando o sacando columnas préviamente seleccionadas, según la necesidad.
+				El Power BI tiene el límite de descargade datos en 150 mil filas;
+				Para la edición de la tabla a continuación, clic en el botón personalizar ese relatório en el lado superior derecho, tal como en la imagen :","es-ES",25),
+				("The Pivot Table tab aims to present all data in tables or charts, where we can customize by adding or deleting previously selected columns, according to the need.
+				Power BI has a download limit of 150 thousand rows;
+				To edit the table below, click on the customize this report button on the top right side, as shown in the image:","en-US",25),
+				("Total de PDVs por      ","pt-BR",26), ("Total de PDVs por         ","es-ES",26), ("Sum of POS by            ","en-US",26)}
+				```
+
+	annotation PBI_Id = 9945446592fc461394de2da033e69940
+

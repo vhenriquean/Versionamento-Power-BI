@@ -1,0 +1,296 @@
+table DIM_PDV
+	lineageTag: cffab5ed-b263-4130-a3c0-83234529e885
+
+	column ID_DIM_PDV
+		dataType: int64
+		formatString: 0
+		lineageTag: 97d1a6e0-b5a0-468f-9ba7-c42c99d736c5
+		summarizeBy: none
+		sourceColumn: ID_DIM_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_AMBIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 9147edd8-6847-432f-bb86-14a7822a3cda
+		summarizeBy: sum
+		sourceColumn: ID_AMBIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOME_PDV
+		dataType: string
+		lineageTag: 460effe0-7881-434c-bc6a-1a94e87a7913
+		summarizeBy: none
+		sourceColumn: NOME_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	column BANDEIRA
+		dataType: string
+		lineageTag: 65c020f1-3582-4147-a92e-d13073cd6c82
+		summarizeBy: none
+		sourceColumn: BANDEIRA
+
+		annotation SummarizationSetBy = Automatic
+
+	column REDE
+		dataType: string
+		lineageTag: 0d77e5fc-bdcf-4b19-a993-5ec07d71697f
+		summarizeBy: none
+		sourceColumn: REDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_PDV
+		dataType: string
+		lineageTag: d8b5d7f5-2751-44f3-985f-d48f8fc9c4f0
+		summarizeBy: none
+		sourceColumn: TIPO_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERFIL_PDV
+		dataType: string
+		lineageTag: 50969357-70aa-43c8-a900-fcebb26d1b0b
+		summarizeBy: none
+		sourceColumn: PERFIL_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	column CANAL_PDV
+		dataType: string
+		lineageTag: 5193f2f5-471b-4f03-8639-4879c6ef09f7
+		summarizeBy: none
+		sourceColumn: CANAL_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGIONAL
+		dataType: string
+		lineageTag: ea2de32d-b528-40d8-98b1-016de23f8ddf
+		summarizeBy: none
+		sourceColumn: REGIONAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column MACRORREGIONAL
+		dataType: string
+		lineageTag: 646e256b-fff2-4c11-98b5-b0ca5bd439f3
+		summarizeBy: none
+		sourceColumn: MACRORREGIONAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CODIGO_PDV
+		dataType: string
+		lineageTag: 7273baa9-d904-4036-b9f9-49e46090b7b5
+		summarizeBy: none
+		sourceColumn: CODIGO_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	column GERENTE
+		dataType: string
+		lineageTag: d65a00b7-e5f7-4a43-aa18-64d89d6bdb95
+		summarizeBy: none
+		sourceColumn: GERENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ATIVO
+		dataType: string
+		lineageTag: 30ff56b8-78a4-429a-bdcf-54a2903a344f
+		summarizeBy: none
+		sourceColumn: ATIVO
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTADO
+		dataType: string
+		lineageTag: 214cc2df-aba4-4ffc-8fa7-a90ae36a9993
+		summarizeBy: none
+		sourceColumn: ESTADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAIS
+		dataType: string
+		lineageTag: d254dc4f-dd1a-4a86-b44e-679af8c29003
+		summarizeBy: none
+		sourceColumn: PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXCLUIDO
+		dataType: double
+		formatString: 0
+		lineageTag: 2dd033c3-7fb7-41e6-a3d2-5a02f3fde683
+		summarizeBy: none
+		sourceColumn: EXCLUIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXCLUIDO_UNIDADE
+		dataType: double
+		formatString: 0
+		lineageTag: 6ac55867-16ec-4570-a1b7-43ea1065e011
+		summarizeBy: none
+		sourceColumn: EXCLUIDO_UNIDADE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC1
+		dataType: string
+		lineageTag: e593f297-9ec9-4126-8703-1f9992a78fcd
+		summarizeBy: none
+		sourceColumn: CC1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC2
+		dataType: string
+		lineageTag: edfde575-96d7-45c0-995c-836f6dbac799
+		summarizeBy: none
+		sourceColumn: CC2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC3
+		dataType: string
+		lineageTag: 10a9ade6-dc38-4ace-8cae-93fdd8233f38
+		summarizeBy: none
+		sourceColumn: CC3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC4
+		dataType: string
+		lineageTag: 4b65b9ff-55f1-4839-8908-5ab19878e5c9
+		summarizeBy: none
+		sourceColumn: CC4
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC5
+		dataType: string
+		lineageTag: 2315959b-0de7-4e3b-9044-79a7bd6f968a
+		summarizeBy: none
+		sourceColumn: CC5
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC6
+		dataType: string
+		lineageTag: 301b3690-5872-4570-93a1-ad3e70a78742
+		summarizeBy: none
+		sourceColumn: CC6
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC7
+		dataType: string
+		lineageTag: 6837ef1a-b82e-47ee-9b88-4d7375a13b02
+		summarizeBy: none
+		sourceColumn: CC7
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC8
+		dataType: string
+		lineageTag: 230fcb4f-063d-4282-9f6e-1127745ac173
+		summarizeBy: none
+		sourceColumn: CC8
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC9
+		dataType: string
+		lineageTag: cbb2d156-6112-462f-9f74-92a293883564
+		summarizeBy: none
+		sourceColumn: CC9
+
+		annotation SummarizationSetBy = Automatic
+
+	column CC10
+		dataType: string
+		lineageTag: 01ff7197-e3fa-4a62-a17d-af5b3a3ca71e
+		summarizeBy: none
+		sourceColumn: CC10
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - Todos Registros' = 0
+		formatString: 0
+		lineageTag: 4cba8267-c9d6-4d5e-ace5-286d81c0d1e6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - CNPJ Cadastrado' = IF('DIM_PDV'[CNPJ]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 7c4c4bb9-5e4c-4877-840c-dae887aea5a8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - CNPJ Valido' = IF('DIM_PDV'[CNPJ Valido]="Sim",1,0)
+		formatString: 0
+		lineageTag: 6eddf36a-aa55-4c31-94f0-704f368a1c5c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - Georreferenciado' = IF('DIM_PDV'[LOCALIZACAO_HOMOLOGADA]="1",1,0)
+		formatString: 0
+		lineageTag: 627a4c67-c790-4248-9e15-4d11b39a3b4a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - Codigo' = IF('DIM_PDV'[CODIGO_PDV]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 580b5593-8e6a-484c-a992-99eb9d3412be
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - Perfil' = IF('DIM_PDV'[PERFIL_PDV]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: a3c08bba-adce-4c95-8007-19747427704e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - Faturamento' = IF('DIM_PDV'[FATURAMENTO]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 95eaa343-b780-4c22-8377-a65f713cfc35
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_PDV
+		dataType: int64
+		formatString: 0
+		lineageTag: f2fa73c3-2c31-43bf-bc77-7436addb1539
+		summarizeBy: none
+		sourceColumn: ID_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_PDV = m
+		mode: import
+		source =
+				let
+				    Fonte = MySQL.Database("inteligenciadb1.involves.com", "BIS_QUATA", [ReturnSingleDatabase=true, Query="SELECT ID_PDV, ID_DIM_PDV, ID_AMBIENTE, NOME_PDV, BANDEIRA, REDE, TIPO_PDV, PERFIL_PDV, CANAL_PDV, REGIONAL, MACRO_REGIONAL, CODIGO_PDV, GERENTE, ATIVO, ESTADO, PAIS, EXCLUIDO, EXCLUIDO_UNIDADE, CC1, CC2, CC3, CC4, CC5, CC6, CC7, CC8, CC9, CC10#(lf)FROM DIM_PDV", CommandTimeout=#duration(0, 3, 42, 0)]),
+				    #"Renamed Columns" = Table.RenameColumns(Fonte,{{"MACRO_REGIONAL", "MACRORREGIONAL"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

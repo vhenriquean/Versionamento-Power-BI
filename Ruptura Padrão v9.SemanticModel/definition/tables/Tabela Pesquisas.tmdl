@@ -1,0 +1,49 @@
+table 'Tabela Pesquisas'
+	lineageTag: f555e848-daf6-451c-84f7-26f0e1892e2c
+
+	column Título
+		lineageTag: ab36dfde-9770-443c-8a0f-76c63f8db37b
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: ee61a3ec-ca00-4ab6-9910-c0649dbb8a54
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		formatString: 0
+		lineageTag: 35a9079c-bfb6-4887-a2e6-e42dbf9af4ce
+		summarizeBy: count
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Tabela Pesquisas' = calculated
+		mode: import
+		source =
+				{
+				("Pesquisas Realizadas","pt-BR",0), ("Encuestas Realizadas","es-ES",0), ("Answered Surveys","en-US",0),
+				("Respondidas","pt-BR",1), ("Respondidas","es-ES",1), ("Answered","en-US",1),
+				("Planejadas","pt-BR",2), ("Planificadas","es-ES",2), ("Planned","en-US",2),
+				("Reconhecimento por Imagem (RI)","pt-BR",3), ("Reconocimiento por Imagen (RI)","es-ES",3), ("Image Recognition (IR)","en-US",3),
+				("Média de Tempo da Pesquisa por:","pt-BR",4), ("Tiempo Promedio de Encuesta por:","es-ES",4), ("Average Time of the Surveys by:   ","en-US",4),
+				("% Pesquisas Respondidas por   ","pt-BR",5), ("% Encuestas Respondidas por  ","es-ES",5), ("% Answered Surveys by             ","en-US",5),
+				("Heatmap % Pesquisas Respondidas              ","pt-BR",6), ("Heatmap % Encuestas Respondidas              ","es-ES",6), ("Heatmap % Answered Surveys                      ","en-US",6),
+				("Evolução % Pesquisas Respondidas               ","pt-BR",7), ("Evolución % Encuestas Respondidas             ","es-ES",7), ("Evolution % Answered Surveys                      ","en-US",7),
+				("Pesquisa Manual","pt-BR",8), ("Encuesta Manual","es-ES",8), ("Manual Survey","en-US",8),
+				("Evolução: Tempo Médio de Pesquisas Respondidas              ","pt-BR",9), ("Evolución: Tiempo Promedio de Encuestas Respondidas              ","es-ES",9), ("Evolution: Average Time for Answered Surveys                       ","en-US",9),
+				("Lista de Pesquisas              ","pt-BR",10), ("Listado de Encuestas        ","es-ES",10), ("List of Surveys                    ","en-US",10),
+				("Média Pesquisas por dia      ","pt-BR",11), ("Encuestas promedio por día  ","es-ES",11), ("Average Surveys per day      ","en-US",11),
+				("Média Pesquisas por visita      ","pt-BR",12), ("Encuestas promedio por visita    ","es-ES",12), ("Average Surveys per visit           ","en-US",12),
+				("Média Pesquisas por dia","pt-BR",13), ("Encuestas promedio por día","es-ES",13), ("Average Surveys per day         ","en-US",13),
+				("Análise de Dispersão        ","pt-BR",14), ("Dispersíon Analisís          ","es-ES",14), ("Dispersion Analysis         ","en-US",14),
+				("Tempo médio por visita","pt-BR",15), ("Tiempo promedio por visita","es-ES",15), ("Average time per visit","en-US",15),
+				("Tempo médio por dia","pt-BR",16), ("Tiempo promedio por día","es-ES",16), ("Average time per day","en-US",16)}
+
+	annotation PBI_Id = 87c97b1d2c3d4d5c8ed6ccf616bca8b6
+

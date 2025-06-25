@@ -1,0 +1,212 @@
+table FT_RUPTURA
+	lineageTag: 8a3b64cc-797b-486e-ae9d-64a57bf8f32f
+
+	column ID_URL
+		dataType: int64
+		formatString: 0
+		lineageTag: 04d2c3ec-b2c7-4f1b-8d11-8c1c21e5e290
+		summarizeBy: none
+		sourceColumn: ID_URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_DIM_COLABORADOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 99f8f52b-d4d4-47cd-91d5-398b645b9717
+		summarizeBy: none
+		sourceColumn: ID_DIM_COLABORADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 5074b792-e26d-4d23-b678-a5e1444c25d2
+		summarizeBy: none
+		sourceColumn: DATA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CHAVE_RESUMIDA = FT_RUPTURA[ID_DIM_COLABORADOR]&FORMAT(FT_RUPTURA[DATA], "ddmmyy")&FT_RUPTURA[ID_DIM_PDV]
+		lineageTag: ac788e6b-64f2-4a8b-9868-11da82803dab
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CICLO
+		dataType: int64
+		formatString: 0
+		lineageTag: 35a86e0a-b5cb-42d3-b513-e2c862e4756d
+		summarizeBy: sum
+		sourceColumn: CICLO
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PDV CICLO'
+		dataType: string
+		lineageTag: 36ae5bd3-0c98-47e2-ac64-de67ac06f389
+		summarizeBy: none
+		sourceColumn: PDV CICLO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'COLABORADOR CICLO'
+		dataType: string
+		lineageTag: f88c1587-b6bb-4109-9883-9d2701f5e04a
+		summarizeBy: none
+		sourceColumn: COLABORADOR CICLO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_FT_RUPTURA
+		dataType: int64
+		formatString: 0
+		lineageTag: a89c59d0-beec-4642-9e09-53a40c316d7c
+		summarizeBy: sum
+		sourceColumn: ID_FT_RUPTURA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_DIM_AMBIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 8da3dd41-eb6a-44b2-9e1b-ffd1c6c6c60b
+		summarizeBy: sum
+		sourceColumn: ID_DIM_AMBIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_DIM_FORMULARIO
+		dataType: int64
+		formatString: 0
+		lineageTag: b298df10-2cf8-4516-bd77-d8f329d7605f
+		summarizeBy: sum
+		sourceColumn: ID_DIM_FORMULARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e0f0e96-e8ef-4af2-b079-e50466c6042b
+		summarizeBy: sum
+		sourceColumn: ID_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_DIM_PDV
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fd06bb3-4b71-447f-a954-82074cde82bb
+		summarizeBy: none
+		sourceColumn: ID_DIM_PDV
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_DIM_LINHA_PRODUTO
+		dataType: int64
+		formatString: 0
+		lineageTag: b2b65aa4-542a-492d-806e-df35b738c159
+		summarizeBy: none
+		sourceColumn: ID_DIM_LINHA_PRODUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_DIM_PRODUTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 223d481e-710a-408f-a5a5-3d12ceda205d
+		summarizeBy: sum
+		sourceColumn: ID_DIM_PRODUTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FL_RUPTURA
+		dataType: int64
+		formatString: 0
+		lineageTag: 462e8425-49d2-49a9-ae81-5552001db668
+		summarizeBy: sum
+		sourceColumn: FL_RUPTURA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOTIVO_RUPTURA
+		dataType: string
+		lineageTag: 4c2ccfe3-cad0-4cbb-ae33-db8bfa73d7e4
+		summarizeBy: none
+		sourceColumn: MOTIVO_RUPTURA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DT_ATUALIZACAO_MILLIS
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ae5a816-46ee-4f49-b9d6-31565ad37ead
+		summarizeBy: sum
+		sourceColumn: DT_ATUALIZACAO_MILLIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRESEÇA_NUM = FT_RUPTURA[PRESENÇA]
+		formatString: 0
+		lineageTag: 47ceec19-f1a3-4b97-a76a-3306e7380c34
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRESENÇA
+		dataType: int64
+		formatString: 0
+		lineageTag: 84bb5735-6a58-48e8-aca6-5e0ee7d51b56
+		summarizeBy: sum
+		sourceColumn: PRESENÇA
+
+		annotation SummarizationSetBy = Automatic
+
+	column RUPTURA
+		dataType: int64
+		formatString: 0
+		lineageTag: b701c8f8-5f00-4248-9d9f-8ec2f7676a92
+		summarizeBy: sum
+		sourceColumn: RUPTURA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PRESENÇA.1'
+		dataType: int64
+		formatString: 0
+		lineageTag: f5bc11ec-6112-4668-8eda-50fc65a78863
+		summarizeBy: sum
+		sourceColumn: PRESENÇA.1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FT_RUPTURA = m
+		mode: import
+		source = ```
+				let
+				    Fonte = MySQL.Database("inteligenciadb1.involves.com", "BIS_QUATA", [ReturnSingleDatabase=true, CommandTimeout=#duration(0, 3, 42, 0), Query="SELECT ID_FT_RUPTURA, ID_URL, ID_DIM_AMBIENTE, ID_DIM_FORMULARIO, ID_COLETA, ID_DIM_COLABORADOR, ID_DIM_PDV, ID_DIM_LINHA_PRODUTO, ID_DIM_PRODUTO, DATA, FL_RUPTURA, MOTIVO_RUPTURA, DT_ATUALIZACAO_MILLIS #(lf)FROM FT_RUPTURA#(lf)WHERE DATA >= '2024-06-01'"]),
+				    CICLO = Table.AddColumn(Fonte, "CICLO", each Text.From(Date.Year([DATA])) & 
+				Text.PadStart(Text.From(Date.Month([DATA])), 2, "0")),
+				    #"PDV CICLO" = Table.AddColumn(CICLO, "PDV CICLO", each Number.ToText([ID_DIM_PDV])
+				& [CICLO]),
+				    #"COLABORADOR CICLO" = Table.AddColumn(#"PDV CICLO", "COLABORADOR CICLO", each Number.ToText([ID_DIM_COLABORADOR])
+				& [CICLO]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"COLABORADOR CICLO",{{"CICLO", Int64.Type}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "PRESENÇA", each if [FL_RUPTURA] = 1 then 0 else if [FL_RUPTURA] = 2 then 0 else 1),
+				    #"Added Custom" = Table.AddColumn(#"Added Conditional Column", "RUPTURA", each if [FL_RUPTURA] = 1 then 1 else 0),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "PRESENÇA.1", each 1 - [PRESENÇA] - [RUPTURA]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom1",{{"PRESENÇA", Int64.Type}, {"RUPTURA", Int64.Type}, {"PRESENÇA.1", Int64.Type}, {"DATA", type date}})
+				in
+				    #"Changed Type1"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

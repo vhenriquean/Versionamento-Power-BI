@@ -1,0 +1,75 @@
+table 'Parâmetro Cadastro PDVs'
+	lineageTag: 7a284d48-d485-417e-b5b8-ad89bd69a238
+
+	column 'Parâmetro Cadastro PDVs'
+		lineageTag: 7fb9733d-3a13-42fd-871a-0d1e767a034e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Cadastro PDVs Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Cadastro PDVs Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastro PDVs Campos'
+		isHidden
+		lineageTag: d6f9f28f-c4dc-4b98-a96a-ed3c2e795f82
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Cadastro PDVs Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastro PDVs Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: f6dfd407-575c-497f-99c6-340c57831838
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		isHidden
+		lineageTag: ef6c2ac7-32a5-48dd-8ed2-f767f49ddb35
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Cadastro PDVs' = calculated
+		mode: import
+		source =
+				{
+				    ("Todos Registros", NAMEOF('DIM_PDV'[Parametro - Todos Registros]), 0,"pt-BR"),
+				    ("PDVs sem CNPJ Cadastrado", NAMEOF('DIM_PDV'[Parametro - CNPJ Cadastrado]), 1,"pt-BR"),
+				    ("PDVs com CNPJ Inválido", NAMEOF('DIM_PDV'[Parametro - CNPJ Valido]), 2,"pt-BR"),
+				    ("PDVs não Georreferenciados", NAMEOF('DIM_PDV'[Parametro - Georreferenciado]), 3,"pt-BR"),
+				    ("PDVs sem Código Cadastrado", NAMEOF('DIM_PDV'[Parametro - Codigo]), 4,"pt-BR"),
+				    ("PDVs sem Perfil Cadastrado", NAMEOF('DIM_PDV'[Parametro - Perfil]), 5,"pt-BR"),
+				    ("PDVs sem Faturamento Cadastrado", NAMEOF('DIM_PDV'[Parametro - Faturamento]), 6,"pt-BR"),
+				        ("Todos los Registros", NAMEOF('DIM_PDV'[Parametro - Todos Registros]), 0,"es-ES"),
+				    ("PDVs sin Persona Jurídica", NAMEOF('DIM_PDV'[Parametro - CNPJ Cadastrado]), 1,"es-ES"),
+				    ("PDVs sin Persona Jurídica Válida", NAMEOF('DIM_PDV'[Parametro - CNPJ Valido]), 2,"es-ES"),
+				    ("PDVs no Georreferenciados", NAMEOF('DIM_PDV'[Parametro - Georreferenciado]), 3,"es-ES"),
+				    ("PDVs sin Código Registrado", NAMEOF('DIM_PDV'[Parametro - Codigo]), 4,"es-ES"),
+				    ("PDVs sin Perfil Registrado", NAMEOF('DIM_PDV'[Parametro - Perfil]), 5,"es-ES"),
+				    ("PDVs sin Faturamento Registrado", NAMEOF('DIM_PDV'[Parametro - Faturamento]), 6,"es-ES"),
+				            ("All Records", NAMEOF('DIM_PDV'[Parametro - Todos Registros]), 0,"en-US"),
+				    ("POS without Legal Person", NAMEOF('DIM_PDV'[Parametro - CNPJ Cadastrado]), 1,"en-US"),
+				    ("POS with Invalid Legal Person", NAMEOF('DIM_PDV'[Parametro - CNPJ Valido]), 2,"en-US"),
+				    ("POS not Georeferenced", NAMEOF('DIM_PDV'[Parametro - Georreferenciado]), 3,"en-US"),
+				    ("POS without Registered Code", NAMEOF('DIM_PDV'[Parametro - Codigo]), 4,"en-US"),
+				    ("POS without Registered Profile", NAMEOF('DIM_PDV'[Parametro - Perfil]), 5,"en-US"),
+				    ("POS without Registered Revenue", NAMEOF('DIM_PDV'[Parametro - Faturamento]), 6,"en-US")
+				}
+
+	annotation PBI_Id = 8094e99bce9e40e4a9f64efbb50744e3
+

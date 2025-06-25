@@ -1,0 +1,49 @@
+table 'Parâmetro Produto 2'
+	lineageTag: d8758317-7bfa-4bd0-b2f5-76972582f6cc
+
+	column 'Parâmetro Produto 2'
+		lineageTag: e7f6c160-4664-447c-ad87-8ea6736bbd58
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Produto 2 Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Produto 2 Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Produto 2 Campos'
+		isHidden
+		lineageTag: 46f6b632-88c3-45be-96c6-cb8a1f261082
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Produto 2 Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Produto 2 Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: b1d0076b-6ab1-4cf3-a08f-aa3900eb2323
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Produto 2' = calculated
+		mode: import
+		source =
+				{
+				    ("Super Categoria", NAMEOF('DIM_PRODUTO'[SUPER_CATEGORIA]), 0),
+				    ("Categoria", NAMEOF('DIM_PRODUTO'[CATEGORIA_PRODUTO]), 1),
+				    ("Linha de Produto", NAMEOF('DIM_PRODUTO'[LINHA_PRODUTO]), 2)
+				}
+
+	annotation PBI_Id = f9573e08ac654041877d306032934920
+

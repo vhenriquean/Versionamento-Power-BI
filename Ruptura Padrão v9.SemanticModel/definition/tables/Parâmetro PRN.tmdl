@@ -1,0 +1,49 @@
+table 'Parâmetro PRN'
+	lineageTag: 2dbe32a7-b1ec-48ca-b2ae-0ca319cb0819
+
+	column 'Parâmetro PRN'
+		lineageTag: c529433c-1a0a-4457-9815-98d1e2d15bcb
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro PRN Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro PRN Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro PRN Campos'
+		isHidden
+		lineageTag: f5680cc2-3c50-4d19-b75b-fb15a16a5f77
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro PRN Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro PRN Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: a4e3d499-3b46-4c0b-b792-6f9d9bd4f670
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro PRN' = calculated
+		mode: import
+		source =
+				{
+				    ("Presença", NAMEOF('MEDIDAS VISITAS'[Produtos Presentes %]), 0),
+				    ("Ruptura", NAMEOF('MEDIDAS VISITAS'[Produtos Ruptura %]), 1),
+				    ("Não Cadastrados", NAMEOF('MEDIDAS VISITAS'[Produtos Não Cadastrados %]), 2)
+				}
+
+	annotation PBI_Id = fbc626bc1f8d49919b64357f86b6eda9
+

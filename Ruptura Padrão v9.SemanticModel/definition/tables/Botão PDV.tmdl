@@ -1,0 +1,33 @@
+table 'Botão PDV'
+	lineageTag: 010d417b-b7e8-4b5a-b339-1c8c3fc27a4b
+
+	column PDV
+		lineageTag: acd013c4-1fba-4de8-846b-ae56d50ffbae
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		isHidden
+		lineageTag: 208d4a40-3b89-49f9-ac6e-174b0a3b47c4
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		isHidden
+		formatString: 0
+		lineageTag: 947930b5-f5c1-422d-b9e5-df55c0707edf
+		summarizeBy: count
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Botão PDV' = calculated
+		mode: import
+		source = {("Pontos de Venda","pt-BR",0), ("Puntos de Venta","es-ES",0), ("Points of Sale","en-US",0)}
+
+	annotation PBI_Id = d9ef60894cad4df1b6f225fc3ac72417
+

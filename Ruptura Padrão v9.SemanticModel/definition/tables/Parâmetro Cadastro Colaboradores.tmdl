@@ -1,0 +1,75 @@
+table 'Parâmetro Cadastro Colaboradores'
+	lineageTag: d9fea3e1-c1d6-4bdd-ae34-cc9d1244efcb
+
+	column 'Parâmetro Cadastro Colaboradores'
+		lineageTag: 65876a30-f387-44fb-a42a-2ce7c3a5a8a9
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Cadastro Colaboradores Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Cadastro Colaboradores Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastro Colaboradores Campos'
+		isHidden
+		lineageTag: 5512d523-0db8-4001-832e-e8d8a8f367b3
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Cadastro Colaboradores Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastro Colaboradores Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 05bc1fc7-6d07-401c-9053-9c7753f8823c
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		isHidden
+		lineageTag: 264edf2e-58b0-4e11-a776-d78258bb24f2
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Cadastro Colaboradores' = calculated
+		mode: import
+		source =
+				{
+				    ("Todos Registros", NAMEOF('DIM_COLABORADOR'[Parametros - Todos Registros]), 0,"pt-BR"),
+				    ("Colab. sem CPF Cadastrado", NAMEOF('DIM_COLABORADOR'[Parametro - CPF Cadastrado]), 1,"pt-BR"),
+				    ("Colab. com CPF Inválido", NAMEOF('DIM_COLABORADOR'[Parametro - CPF Valido]), 2,"pt-BR"),
+				    ("Colab. sem Superior Cadastrado", NAMEOF('DIM_COLABORADOR'[Parametro - Superior]), 3,"pt-BR"),
+				    ("Colab. sem Endereço Cadastrado", NAMEOF('DIM_COLABORADOR'[Parametro - Endereço]), 4,"pt-BR"),
+				    ("Colab. sem Perfil de Acesso Cadastrado", NAMEOF('DIM_COLABORADOR'[Parametro - perfil acesso]), 5,"pt-BR"),
+				    ("Colab. sem Perfil de Colab. Cadastrado", NAMEOF('DIM_COLABORADOR'[Parametro - perfil colaborador]), 6,"pt-BR"),
+				        ("Todos los Registros", NAMEOF('DIM_COLABORADOR'[Parametros - Todos Registros]), 0,"es-ES"),
+				    ("Empl. sin Registro Persona Física", NAMEOF('DIM_COLABORADOR'[Parametro - CPF Cadastrado]), 1,"es-ES"),
+				    ("Empl. sin Persona Física Válida", NAMEOF('DIM_COLABORADOR'[Parametro - CPF Valido]), 2,"es-ES"),
+				    ("Empl. sin Superior Registrado", NAMEOF('DIM_COLABORADOR'[Parametro - Superior]), 3,"es-ES"),
+				    ("Empl. sin Dirección Registrada", NAMEOF('DIM_COLABORADOR'[Parametro - Endereço]), 4,"es-ES"),
+				    ("Empl. sin Perfil de Acceso Registrado", NAMEOF('DIM_COLABORADOR'[Parametro - perfil acesso]), 5,"es-ES"),
+				    ("Empl. sin Perfil Registrado", NAMEOF('DIM_COLABORADOR'[Parametro - perfil colaborador]), 6,"es-ES"),
+				    ("All Records", NAMEOF('DIM_COLABORADOR'[Parametros - Todos Registros]), 0,"en-US"),
+				    ("Empl. without Individual Registration", NAMEOF('DIM_COLABORADOR'[Parametro - CPF Cadastrado]), 1,"en-US"),
+				    ("Empl. with Invalid Individual Registration", NAMEOF('DIM_COLABORADOR'[Parametro - CPF Valido]), 2,"en-US"),
+				    ("Empl. without Registered Manager", NAMEOF('DIM_COLABORADOR'[Parametro - Superior]), 3,"en-US"),
+				    ("Empl. without Registered Address", NAMEOF('DIM_COLABORADOR'[Parametro - Endereço]), 4,"en-US"),
+				    ("Empl. without Registered Access Profile", NAMEOF('DIM_COLABORADOR'[Parametro - perfil acesso]), 5,"en-US"),
+				    ("Empl. without Registered Collaboration Profile", NAMEOF('DIM_COLABORADOR'[Parametro - perfil colaborador]), 6,"en-US")
+				}
+
+	annotation PBI_Id = 753937bb23064d46ae546c8e47a6efe9
+

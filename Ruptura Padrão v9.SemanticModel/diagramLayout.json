@@ -1,0 +1,586 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 375
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1230.7119419385353,
+            "y": 0
+          },
+          "nodeIndex": "Parâmetro Dim PDV 1",
+          "nodeLineageTag": "59d55301-8cce-4023-81de-b8db1b8de235",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 1312.4532644783912,
+            "y": 477.47747801759465
+          },
+          "nodeIndex": "Parâmetro Dim Colab 1",
+          "nodeLineageTag": "c9cef6b3-7b2b-4c1a-a5eb-29dd6c5a84d2",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 26
+        },
+        {
+          "location": {
+            "x": 1233.5306082330133,
+            "y": 216.75084577839885
+          },
+          "nodeIndex": "Parâmetro Cadastro PDVs",
+          "nodeLineageTag": "7a284d48-d485-417e-b5b8-ad89bd69a238",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 27
+        },
+        {
+          "location": {
+            "x": 430.05333891616647,
+            "y": 415.66694449733421
+          },
+          "nodeIndex": "DIM_PDV",
+          "nodeLineageTag": "cffab5ed-b263-4130-a3c0-83234529e885",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 34
+        },
+        {
+          "location": {
+            "x": 712.73330541916778,
+            "y": 320.58163014563331
+          },
+          "nodeIndex": "DIM_COLABORADOR",
+          "nodeLineageTag": "5a15eea4-d9b8-4e7f-9d8d-fbc3693fc069",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 37
+        },
+        {
+          "location": {
+            "x": 1888.8291852021614,
+            "y": 670.84257808571454
+          },
+          "nodeIndex": "Parâmetro Cadastro Colaboradores",
+          "nodeLineageTag": "d9fea3e1-c1d6-4bdd-ae34-cc9d1244efcb",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 29
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 588.45477059624614
+          },
+          "nodeIndex": "DIM_AMBIENTE",
+          "nodeLineageTag": "d38c6494-5072-43cd-b9fc-707dfe6b4ada",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 28
+        },
+        {
+          "location": {
+            "x": 2852.8130579135664,
+            "y": 1007.2499764104482
+          },
+          "nodeIndex": "MEDIDAS VISITAS",
+          "nodeLineageTag": "5859ea15-56a7-4e3e-bdc6-829e9cb7572f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 1216.5772739692081,
+            "y": 912.78331904850347
+          },
+          "nodeIndex": "Parametro Promotor",
+          "nodeLineageTag": "f9dfb666-7622-4c11-8892-1946e549afb9",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 30
+        },
+        {
+          "location": {
+            "x": 1216.5772739692077,
+            "y": 699.97401381543
+          },
+          "nodeIndex": "Parametro Colaborador 2",
+          "nodeLineageTag": "25c22b1c-63a9-492c-b8ca-2b910666ad6c",
+          "size": {
+            "height": 152,
+            "width": 293.19199218403355
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 1749.3052036255103,
+            "y": 912.78331904850336
+          },
+          "nodeIndex": "Parametro Promotor 2",
+          "nodeLineageTag": "3674e46b-47a5-44d5-9f63-9fee9f248ffd",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 1494.2159039752703,
+            "y": 914.19265219574231
+          },
+          "nodeIndex": "Parametro Promotor 3",
+          "nodeLineageTag": "48f9a8dc-0df8-4cdd-a22d-d5c3f77204fc",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 1997.3478375395562,
+            "y": 915.60198534298127
+          },
+          "nodeIndex": "Parametro Promotor 4",
+          "nodeLineageTag": "f6173e86-0346-4082-86e0-df4d3b8e2fbe",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 2823.2144669873346,
+            "y": 679.147434750638
+          },
+          "nodeIndex": "Localized Labels",
+          "nodeLineageTag": "e85318d1-d76f-4118-8c46-39e2faf5ad22",
+          "size": {
+            "height": 188.84934431290515,
+            "width": 234
+          },
+          "zIndex": 24
+        },
+        {
+          "location": {
+            "x": 1841.6333007668063,
+            "y": 0
+          },
+          "nodeIndex": "Parametro Idioma",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 32
+        },
+        {
+          "location": {
+            "x": 2573.1624720118853,
+            "y": 397.09632609787116
+          },
+          "nodeIndex": "Translated Localized Labels",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 1619.7679687361344,
+            "y": 528.930980110116
+          },
+          "nodeIndex": "Botão PDV",
+          "nodeLineageTag": "010d417b-b7e8-4b5a-b339-1c8c3fc27a4b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 33
+        },
+        {
+          "location": {
+            "x": 2857.1624720118853,
+            "y": 433.09632609787116
+          },
+          "nodeIndex": "Botão Colaborador",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 2187.0439313311526,
+            "y": 456.13233335555424
+          },
+          "nodeIndex": "Botão Visitas Gerais",
+          "nodeLineageTag": "b8115c3d-6280-4afe-924e-9ce33b5c2433",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 2561.0785016009013,
+            "y": 0
+          },
+          "nodeIndex": "Botão Visitas Det",
+          "nodeLineageTag": "b8938714-ad55-495d-9830-3eb0a6997845",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 2814.7584681039029,
+            "y": 192.07968967155057
+          },
+          "nodeIndex": "Botão Pesquisas",
+          "nodeLineageTag": "38991fa1-f06d-4941-a4e0-def1e532506a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 2243.1519531042009,
+            "y": 0
+          },
+          "nodeIndex": "Textos Data Quality",
+          "nodeLineageTag": "92312371-65d8-4b43-9f88-7321fd104bf8",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 3160.0450891774321,
+            "y": 455.6249882052241
+          },
+          "nodeIndex": "Tabela Visitas",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 31
+        },
+        {
+          "location": {
+            "x": 3363.0278040425583,
+            "y": 721.98895303337542
+          },
+          "nodeIndex": "Tabela Pesquisas",
+          "nodeLineageTag": "f555e848-daf6-451c-84f7-26f0e1892e2c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 3728.0450891774321,
+            "y": 455.6249882052241
+          },
+          "nodeIndex": "Botão Data Quality",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 4012.0450891774321,
+            "y": 503.6249882052241
+          },
+          "nodeIndex": "DATA ATUALIZAÇÃO",
+          "nodeLineageTag": "fd1a2888-5810-48e7-952d-70f86d7261b2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1640.8614397793519,
+            "y": 744.53828338919777
+          },
+          "nodeIndex": "Botão Pesquisas Det",
+          "nodeLineageTag": "afa253b2-26cb-4d96-ad79-7a1adadfccc7",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 568.869363852821,
+            "y": 0
+          },
+          "nodeIndex": "DIM_CALENDARIO",
+          "nodeLineageTag": "60a2bac5-b99d-471b-97e9-4813713fb904",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 39
+        },
+        {
+          "location": {
+            "x": 203.75990509183703,
+            "y": 63.260299231527767
+          },
+          "nodeIndex": "FT_RUPTURA",
+          "nodeLineageTag": "8a3b64cc-797b-486e-ae9d-64a57bf8f32f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 35
+        },
+        {
+          "location": {
+            "x": 691.04508917743249,
+            "y": 685.6249882052241
+          },
+          "nodeIndex": "DIM_PRODUTO",
+          "nodeLineageTag": "d8293d79-cbfe-427c-8d81-d87ef67a6665",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 38
+        },
+        {
+          "location": {
+            "x": 2289.1624720118853,
+            "y": 684.93590955810362
+          },
+          "nodeIndex": "TITULOS",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 4296.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro Mes Semana",
+          "nodeLineageTag": "6fe0b339-43d8-48e4-aa3c-48cc8a83c214",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 4580.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro Produto",
+          "nodeLineageTag": "33e1f344-d016-489f-b5cf-390866916d61",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 4864.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro Produto 2",
+          "nodeLineageTag": "d8758317-7bfa-4bd0-b2f5-76972582f6cc",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 5432.0450891774326,
+            "y": 503.6249882052241
+          },
+          "nodeIndex": "classe_categoria",
+          "nodeLineageTag": "acfe6d3b-632d-47e3-83b0-2ba77d217ddf",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 5716.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro Evolutivo 1",
+          "nodeLineageTag": "e2af4399-96ba-4be7-bfd9-4a7a3e3f17a4",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 290.04508917743283,
+            "y": 857.29165487189084
+          },
+          "nodeIndex": "DIM CALENDARIO AUX",
+          "nodeLineageTag": "b8dd9827-8532-4f26-b320-0275710e8370",
+          "size": {
+            "height": 200,
+            "width": 262.33333333333303
+          },
+          "zIndex": 36
+        },
+        {
+          "location": {
+            "x": 6000.0450891774326,
+            "y": 455.6249882052241
+          },
+          "nodeIndex": "DIM CALENDARIO AUX 2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 6284.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Tabela Waffle",
+          "nodeLineageTag": "62030c7f-3f00-422a-b46e-b67f56342a65",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6568.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro PRN",
+          "nodeLineageTag": "2dbe32a7-b1ec-48ca-b2ae-0ca319cb0819",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 6852.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro SCL",
+          "nodeLineageTag": "5c393f84-6d30-446e-a601-fe606acb122d",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5148.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro Filtros TD Ruptura (Data)",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7136.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro",
+          "nodeLineageTag": "c6565614-8c8d-4e3f-ba0e-b67f5b494a80",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 7420.0450891774326,
+            "y": 479.6249882052241
+          },
+          "nodeIndex": "Parâmetro Medidas",
+          "nodeLineageTag": "43228107-a879-4500-a38b-9ccbe0b291ec",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 60,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

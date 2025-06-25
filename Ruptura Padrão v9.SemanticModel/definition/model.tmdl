@@ -1,0 +1,92 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["FT_RUPTURA","DIM_PDV","DIM_COLABORADOR","DIM_AMBIENTE","DIM_PRODUTO","TITULOS","MEDIDAS VISITAS","DATA ATUALIZAÇÃO","classe_categoria","Tabela Waffle"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.144.679.0 (25.06)+ef40146207b86a826d1c72a7727a743ee37450e9
+
+annotation TranslationsBuilder = Version:2.2-Updated:2024-03-22
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DIM_PDV
+ref table DateTableTemplate_e1a2b1a2-a0a0-4832-8e3e-29c9531a8391
+ref table DIM_COLABORADOR
+ref table FT_RUPTURA
+ref table DIM_CALENDARIO
+ref table TITULOS
+ref table 'Parâmetro Dim PDV 1'
+ref table 'Parâmetro Dim Colab 1'
+ref table 'Parâmetro Cadastro PDVs'
+ref table 'Parâmetro Cadastro Colaboradores'
+ref table DIM_AMBIENTE
+ref table 'MEDIDAS VISITAS'
+ref table 'Parametro Promotor'
+ref table 'Parametro Colaborador 2'
+ref table 'Parametro Promotor 2'
+ref table 'Parametro Promotor 3'
+ref table 'Parametro Promotor 4'
+ref table 'Localized Labels'
+ref table 'Parametro Idioma'
+ref table 'Textos Data Quality'
+ref table 'Botão PDV'
+ref table 'Botão Colaborador'
+ref table 'Botão Visitas Gerais'
+ref table 'Botão Visitas Det'
+ref table 'Botão Pesquisas'
+ref table LocalDateTable_34a675d5-e0a3-4da0-9eff-dfc5e04b3835
+ref table 'Translated Localized Labels'
+ref table 'Tabela Visitas'
+ref table 'Tabela Pesquisas'
+ref table LocalDateTable_047028a4-f4e3-4546-9ad1-3b42d9f5b453
+ref table LocalDateTable_f8b6d14f-d28a-4e9f-a8a5-d177d2254c6f
+ref table 'Botão Data Quality'
+ref table 'DATA ATUALIZAÇÃO'
+ref table 'Botão Pesquisas Det'
+ref table DIM_PRODUTO
+ref table LocalDateTable_b2e2e3a5-b93b-44eb-ba31-ad6f778aa974
+ref table 'Parâmetro Mes Semana'
+ref table 'Parâmetro Produto'
+ref table 'Parâmetro Produto 2'
+ref table 'Parâmetro Filtros TD Ruptura (Data)'
+ref table classe_categoria
+ref table LocalDateTable_aeb3d2ba-68e3-4f35-8bc3-b93dc9fcca9c
+ref table LocalDateTable_f0dd1a06-7298-43fe-b23f-b4df61d21a08
+ref table 'Parâmetro Evolutivo 1'
+ref table 'DIM CALENDARIO AUX'
+ref table LocalDateTable_e7d65709-930e-499d-bf88-25bfcb8fa778
+ref table LocalDateTable_2ea5b73a-48a6-4435-a989-6539fa918bc9
+ref table LocalDateTable_652776a4-f1b0-4239-ba60-304ebd5c26ee
+ref table LocalDateTable_81e87375-dfb9-460f-8398-d3fe39c33cf2
+ref table LocalDateTable_64a0e242-84ad-4aa4-b3a4-fd3b5c10c578
+ref table LocalDateTable_2e438dce-d524-4425-954d-9e50d4ad87db
+ref table 'DIM CALENDARIO AUX 2'
+ref table LocalDateTable_4cd2925d-c6bf-4d31-a161-7292e8a2887a
+ref table LocalDateTable_6dffbced-5d41-49a6-a99d-10dc24db9574
+ref table LocalDateTable_8f9af735-352a-47f4-865e-89827bd53432
+ref table LocalDateTable_3ebd5046-7d49-4a07-b3b2-647653fb59ec
+ref table LocalDateTable_c9bc4846-30fb-40d0-a4da-62d4f982b3f8
+ref table LocalDateTable_63b639f8-c1b6-433e-87e3-28bbdbfd2464
+ref table 'Tabela Waffle'
+ref table 'Parâmetro PRN'
+ref table 'Parâmetro SCL'
+ref table Parâmetro
+ref table 'Parâmetro Medidas'
+
+ref perspective Visitas
+ref perspective Pesquisas
+ref perspective Ruptura
+
+ref cultureInfo pt-BR
+ref cultureInfo en-US
+ref cultureInfo es-ES
+

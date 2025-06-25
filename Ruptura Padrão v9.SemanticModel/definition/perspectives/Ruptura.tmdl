@@ -1,0 +1,198 @@
+perspective Ruptura
+
+	perspectiveTable FT_RUPTURA
+
+		perspectiveColumn ID_URL
+
+		perspectiveColumn ID_DIM_COLABORADOR
+
+		perspectiveColumn DATA
+
+		perspectiveColumn CHAVE_RESUMIDA
+
+		perspectiveColumn CICLO
+
+		perspectiveColumn 'PDV CICLO'
+
+		perspectiveColumn 'COLABORADOR CICLO'
+
+		perspectiveColumn ID_FT_RUPTURA
+
+		perspectiveColumn ID_DIM_AMBIENTE
+
+		perspectiveColumn ID_DIM_FORMULARIO
+
+		perspectiveColumn ID_COLETA
+
+		perspectiveColumn ID_DIM_PDV
+
+		perspectiveColumn ID_DIM_LINHA_PRODUTO
+
+		perspectiveColumn ID_DIM_PRODUTO
+
+		perspectiveColumn FL_RUPTURA
+
+		perspectiveColumn MOTIVO_RUPTURA
+
+		perspectiveColumn DT_ATUALIZACAO_MILLIS
+
+		perspectiveColumn PRESEÇA_NUM
+
+		perspectiveColumn PRESENÇA
+
+		perspectiveColumn RUPTURA
+
+		perspectiveColumn 'PRESENÇA.1'
+
+	perspectiveTable DIM_PRODUTO
+
+		perspectiveColumn ID_DIM_LINHA_PRODUTO
+
+		perspectiveColumn ID_URL
+
+		perspectiveColumn ID_AMBIENTE
+
+		perspectiveColumn ID_LINHA_PRODUTO
+
+		perspectiveColumn LINHA_PRODUTO
+
+		perspectiveColumn MARCA
+
+		perspectiveColumn CATEGORIA_PRODUTO
+
+		perspectiveColumn SUPER_CATEGORIA
+
+		perspectiveColumn ORIGEM
+
+		perspectiveColumn CODIGO_BARRAS
+
+		perspectiveColumn COD_ERP
+
+		perspectiveColumn ATIVO
+
+		perspectiveColumn CC1
+
+		perspectiveColumn CC2
+
+		perspectiveColumn CC3
+
+		perspectiveColumn CC4
+
+		perspectiveColumn CC5
+
+		perspectiveColumn CC6
+
+		perspectiveColumn CC7
+
+		perspectiveColumn CC8
+
+		perspectiveColumn CC9
+
+	perspectiveTable DIM_PDV
+
+		perspectiveColumn ID_DIM_PDV
+
+		perspectiveColumn ID_AMBIENTE
+
+		perspectiveColumn NOME_PDV
+
+		perspectiveColumn BANDEIRA
+
+		perspectiveColumn REDE
+
+		perspectiveColumn TIPO_PDV
+
+		perspectiveColumn PERFIL_PDV
+
+		perspectiveColumn CANAL_PDV
+
+		perspectiveColumn REGIONAL
+
+		perspectiveColumn MACRORREGIONAL
+
+		perspectiveColumn CODIGO_PDV
+
+		perspectiveColumn GERENTE
+
+		perspectiveColumn ATIVO
+
+		perspectiveColumn ESTADO
+
+		perspectiveColumn PAIS
+
+		perspectiveColumn EXCLUIDO
+
+		perspectiveColumn EXCLUIDO_UNIDADE
+
+		perspectiveColumn CC1
+
+		perspectiveColumn CC2
+
+		perspectiveColumn CC3
+
+		perspectiveColumn CC4
+
+		perspectiveColumn CC5
+
+		perspectiveColumn CC6
+
+		perspectiveColumn CC7
+
+		perspectiveColumn CC8
+
+		perspectiveColumn CC9
+
+		perspectiveColumn CC10
+
+		perspectiveColumn 'Parametro - Todos Registros'
+
+		perspectiveColumn 'Parametro - CNPJ Cadastrado'
+
+		perspectiveColumn 'Parametro - CNPJ Valido'
+
+		perspectiveColumn 'Parametro - Georreferenciado'
+
+		perspectiveColumn 'Parametro - Codigo'
+
+		perspectiveColumn 'Parametro - Perfil'
+
+		perspectiveColumn 'Parametro - Faturamento'
+
+	perspectiveTable DIM_COLABORADOR
+
+		perspectiveColumn ID_DIM_COLABORADOR
+
+		perspectiveColumn ID_AMBIENTE
+
+		perspectiveColumn NOME_COLABORADOR
+
+		perspectiveColumn TEMPORARIO
+
+		perspectiveColumn USUARIO_ATIVO
+
+		perspectiveColumn PERFIL_ACESSO
+
+		perspectiveColumn COLABORADOR_SUPERIOR
+
+		perspectiveColumn PERFIL_COLABORADOR
+
+		perspectiveColumn CPF
+
+		perspectiveColumn CARGO
+
+		perspectiveColumn FL_TESTE
+
+		perspectiveColumn 'Parametros - Todos Registros'
+
+		perspectiveColumn 'Parametro - CPF Cadastrado'
+
+		perspectiveColumn 'Parametro - CPF Valido'
+
+		perspectiveColumn 'Parametro - Superior'
+
+		perspectiveColumn 'Parametro - Endereço'
+
+		perspectiveColumn 'Parametro - perfil acesso'
+
+		perspectiveColumn 'Parametro - perfil colaborador'
+

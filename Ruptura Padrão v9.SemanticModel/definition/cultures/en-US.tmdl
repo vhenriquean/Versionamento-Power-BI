@@ -1,0 +1,221 @@
+cultureInfo en-US
+	translations
+		model Model
+			table DIM_PDV
+				caption: DIM_POS
+				column ID_DIM_PDV
+					caption: ID_DIM_POS
+				column ID_AMBIENTE
+					caption: ID_ENVIRONMENT
+				column NOME_PDV
+					caption: Name POS
+				column BANDEIRA
+					caption: Banner
+				column REDE
+					caption: Chain
+				column TIPO_PDV
+					caption: Type POS
+				column PERFIL_PDV
+					caption: Profile POS
+				column CANAL_PDV
+					caption: Canal POS
+				column REGIONAL
+					caption: REGIONAL
+				column MACRORREGIONAL
+					caption: MACRORREGIONAL
+				column CODIGO_PDV
+					caption: POS_CODE
+				column GERENTE
+					caption: MANAGER
+				column ATIVO
+					caption: ACTIVE
+				column ESTADO
+					caption: STATE
+				column PAIS
+					caption: COUNTRY
+				column EXCLUIDO
+					caption: EXCLUDE
+				column EXCLUIDO_UNIDADE
+					caption: EXCLUDED_UNITY
+				column CC1
+					caption: CC1
+				column CC2
+					caption: CC2
+				column CC3
+					caption: CC3
+				column CC4
+					caption: CC4
+				column CC5
+					caption: CC5
+				column CC6
+					caption: CC6
+				column CC7
+					caption: CC7
+				column CC8
+					caption: CC8
+				column CC9
+					caption: CC9
+				column CC10
+					caption: CC10
+				column 'Parametro - Todos Registros'
+					caption: Parametro - Todos Registros
+				column 'Parametro - CNPJ Cadastrado'
+					caption: Parametro - LEGAL_PERSON Registered
+				column 'Parametro - CNPJ Valido'
+					caption: Parametro - LEGAL_PERSON Valid
+				column 'Parametro - Georreferenciado'
+					caption: Parametro - Georreferenciado
+				column 'Parametro - Codigo'
+					caption: Parametro - Code
+				column 'Parametro - Perfil'
+					caption: Parametro - PROFILE
+				column 'Parametro - Faturamento'
+					caption: Parametro - INVOICE
+			table DIM_COLABORADOR
+				caption: DIM_EMPLOYEE
+				column ID_DIM_COLABORADOR
+					caption: ID_DIM_EMPLOYEE
+				column ID_AMBIENTE
+					caption: ID_AMBIENTE
+				column NOME_COLABORADOR
+					caption: Name Employee
+				column TEMPORARIO
+					caption: TEMPORARY
+				column USUARIO_ATIVO
+					caption: Active User
+				column PERFIL_ACESSO
+					caption: Profile Access
+				column COLABORADOR_SUPERIOR
+					caption: EMPLOYEE_SUPERIOR
+				column PERFIL_COLABORADOR
+					caption: PROFILE_EMPLOYEE
+				column CPF
+					caption: INDIVIDUAL_REGISTRATION
+				column CARGO
+					caption: COMPANY_POSITION
+				column FL_TESTE
+					caption: FL_TEST
+				column 'Parametros - Todos Registros'
+					caption: Parametros - Todos Registros
+				column 'Parametro - CPF Cadastrado'
+					caption: Parametro - INDIVIDUAL_REGISTRATION Registered
+				column 'Parametro - CPF Valido'
+					caption: Parametro - INDIVIDUAL_REGISTRATION Valid
+				column 'Parametro - Superior'
+					caption: Parametro - Superior
+				column 'Parametro - perfil acesso'
+					caption: Parametro - PROFILE Access
+				column 'Parametro - perfil colaborador'
+					caption: Parameter - PROFILE EMPLOYEE
+			table FT_RUPTURA
+				caption: FT_VISIT
+				column ID_URL
+					caption: ID_URL
+				column ID_DIM_COLABORADOR
+					caption: ID_DIM_EMPLOYEE
+				column DATA
+					caption: DATE
+				column CHAVE_RESUMIDA
+					caption: CHAVE_RESUMED
+				column CICLO
+					caption: CYCLE
+				column 'PDV CICLO'
+					caption: POS CYCLE
+				column 'COLABORADOR CICLO'
+					caption: EMPLOYEE CYCLE
+			table DIM_CALENDARIO
+				caption: DIM_CALENDARIO
+				column Date
+					caption: Date
+				column 'Numero da Semana do Ano'
+					caption: Week number of the year
+				column 'Nome Abreviado do Mes'
+					caption: Short Name of the Month
+				column 'Numero do Mes'
+					caption: Month number of the year
+				column 'Numero Semana do Mes'
+					caption: Week number of the month
+				column 'Semana do Mes'
+					caption: Week of Month
+				column 'Mês e Ano'
+					caption: Month and Year
+				column Ciclo
+					caption: Cycle
+				column Ano
+					caption: Year
+				column 'Dia Semana'
+					caption: Day of the Week
+				column 'Dia Semana n'
+					caption: Day of the Week n
+				column 'Primeiro Dia da Semana'
+					caption: First Day of the Week
+				column 'Último Dia da Semana'
+					caption: Last Day of the Week
+				column 'Semana do Mes Intervalo'
+					caption: Week of the Month Interval
+				column 'Mês e Ano (Começo Semana)'
+					caption: Month and Year (Beggining of Week)
+				column 'Mes (Começo Semana)'
+					caption: Month (Beggining of Week)
+				column Semana
+					caption: Week
+				column 'Mês e Ano (Resumido)'
+					caption: Month and Year (Resumed)
+				column 'Mes e Ano Coleta'
+					caption: Month and Year
+			table TITULOS
+				caption: METRICS DQ
+			table DIM_AMBIENTE
+				caption: DIM_ENVIRONMENT
+				column ID_DIM_AMBIENTE
+					caption: ID_DIM_ENVIRONMENT
+				column ID_URL
+					caption: ID_URL
+				column ID_AMBIENTE
+					caption: ID_ENVIRONMENT
+				column AMBIENTE
+					caption: ENVIRONMENT
+				column NOME_RESPONSAVEL
+					caption: RESPONSIBLE_NAME
+				column ATIVO
+					caption: Active
+			table 'MEDIDAS VISITAS'
+				caption: MEDIDAS VISITS
+				measure 'Visitas Realizadas'
+					caption: Planned POS
+				measure 'Check-in Entrada BN'
+					caption: Check-in Entry BN
+				measure 'Check-out Saída BN'
+					caption: Check-out Exit BN
+				measure 'Atendimento Planejado BN'
+					caption: Service Planejado BN
+				measure 'Colaboradores Totais'
+					caption: Employees Totais
+				measure 'Colab Planejados BN'
+					caption: Colab Planejados BN
+				measure 'Valores Relevantes'
+					caption: Valores Relevantes
+				measure 'Total PDVs'
+					caption: POS
+			table 'Parametro Promotor'
+				caption: Parameter Employee
+			table 'Parametro Colaborador 2'
+				caption: Parameter Employee 2
+			table 'Parametro Promotor 2'
+				caption: Parameter Employee 2
+			table 'Parametro Promotor 3'
+				caption: Parameter Employee 3
+			table 'Parametro Promotor 4'
+				caption: Parameter Employee 4
+			table 'Localized Labels'
+				measure 'My Report Title'
+					caption: My Report Title
+				measure 'My Button Caption'
+					caption: My Button Caption
+				measure 'My Visual Title'
+					caption: My Visual Title
+			table 'DATA ATUALIZAÇÃO'
+				caption: Last Update
+				column 'Data Hora Atualização'
+					caption: Date Hour Last Update
+

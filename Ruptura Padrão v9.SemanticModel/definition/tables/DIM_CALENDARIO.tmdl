@@ -1,0 +1,211 @@
+table DIM_CALENDARIO
+	lineageTag: 60a2bac5-b99d-471b-97e9-4813713fb904
+
+	column Date
+		formatString: Short Date
+		lineageTag: 9620de19-1825-4ba5-a95b-b8854e04b494
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 89f682b0-fbbd-4425-995a-fa285af8fa31
+			defaultHierarchy: LocalDateTable_34a675d5-e0a3-4da0-9eff-dfc5e04b3835.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero da Semana do Ano' = WEEKNUM(DIM_CALENDARIO[Date])
+		formatString: 0
+		lineageTag: df8335e4-9353-46a4-b6fd-1e71882517f7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome Abreviado do Mes' = FORMAT(DIM_CALENDARIO[Date], "MMM")
+		lineageTag: 9406c4a4-c60e-483f-ba4c-ccec5ff48752
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero do Mes' = FORMAT(DIM_CALENDARIO[Date], "MM")
+		lineageTag: 652a60f1-79db-4379-a20d-7b66baa74397
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero Semana do Mes' = WEEKNUM(DIM_CALENDARIO[Date]) - WEEKNUM(EOMONTH(DIM_CALENDARIO[Date], -1) +1) + 1
+		formatString: 0
+		lineageTag: e8f3ae2c-40fa-4ac5-9874-2cf77552964a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Mes' = ```
+			"S" & CONVERT(DIM_CALENDARIO[Numero Semana do Mes], STRING) & " " & CONVERT(DIM_CALENDARIO[Mês e Ano], STRING) 
+			```
+		lineageTag: 1c829ca1-bae4-4b37-a7b9-544b34405fa3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês e Ano' = FORMAT(DIM_CALENDARIO[Date], "MM/YYYY")
+		dataType: dateTime
+		formatString: mmmm" de "yyyy
+		lineageTag: c3b085c0-5172-41e2-92a4-688f963df9bd
+		summarizeBy: none
+		sortByColumn: Ciclo
+
+		variation Variation
+			isDefault
+			relationship: 0c83b180-12b2-449f-9829-3fa71dab5577
+			defaultHierarchy: LocalDateTable_b2e2e3a5-b93b-44eb-ba31-ad6f778aa974.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Ciclo = DIM_CALENDARIO[Ano] & FORMAT(DIM_CALENDARIO[Date], "MM")
+		dataType: int64
+		formatString: 0
+		lineageTag: 58613e78-f44f-4a9f-bc52-2fd2fc09571f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano = FORMAT(DIM_CALENDARIO[Date], "YYYY")
+		lineageTag: 5d6961d4-e9e6-4551-a847-63bbf9adeec8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia Semana' =
+			SWITCH(
+			        WEEKDAY(DIM_CALENDARIO[Date]),
+			        1, "Domingo",
+			        2, "Segunda",
+			        3, "Terça",
+			        4, "Quarta",
+			        5, "Quinta",
+			        6, "Sexta",
+			        "Sábado"
+			    )
+		lineageTag: 988164a1-8bf1-4a8e-9911-6bb3e120a2ab
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia Semana n' = WEEKDAY(DIM_CALENDARIO[Date])
+		formatString: 0
+		lineageTag: a08e3fec-1f17-4d61-90a7-84f1d0e1902a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primeiro Dia da Semana' = FORMAT(DIM_CALENDARIO[Date] - WEEKDAY(DIM_CALENDARIO[Date],1) +1, "dd/mmm")
+		lineageTag: 675e6bfd-aac1-46aa-bc80-20cc054b0b20
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Último Dia da Semana' = FORMAT(DIM_CALENDARIO[Date] - WEEKDAY(DIM_CALENDARIO[Date],1) +7, "dd/mmm")
+		lineageTag: e3076cec-3326-4a75-a36e-fbc4a65b7ca6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Mes Intervalo' = CONVERT(DIM_CALENDARIO[Primeiro Dia da Semana], STRING) & " - " & CONVERT(DIM_CALENDARIO[Último Dia da Semana], STRING)
+		lineageTag: 454329c9-5f3e-4af8-a851-221fa5b8ef28
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês e Ano (Começo Semana)' = CONVERT(FORMAT(DIM_CALENDARIO[Date] - WEEKDAY(DIM_CALENDARIO[Date],1) +1, "MM/YYYY"), DATETIME)
+		formatString: General Date
+		lineageTag: 9a4df066-97be-412a-a755-1184a4a0c9d4
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 2df3bd21-db6e-4d12-a951-fb048ef9fa52
+			defaultHierarchy: LocalDateTable_047028a4-f4e3-4546-9ad1-3b42d9f5b453.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes (Começo Semana)' = FORMAT(DIM_CALENDARIO[Date] - WEEKDAY(DIM_CALENDARIO[Date],1) +1, "mm")
+		lineageTag: 4f244256-28d6-4ad9-917a-d0689c9d9948
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana =
+			CONVERT(FORMAT(DIM_CALENDARIO[Date] - WEEKDAY(DIM_CALENDARIO[Date],1) +1, "MMM"), STRING)
+			 & " " & CONVERT(FORMAT(DIM_CALENDARIO[Date] - WEEKDAY(DIM_CALENDARIO[Date],1) +1, "DD"), STRING)
+		lineageTag: e19a6f1a-a532-4357-9394-b8968adcf891
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês e Ano (Resumido)' = CONVERT(FORMAT(DIM_CALENDARIO[Date], "MM/YYYY"), DATETIME)
+		formatString: General Date
+		lineageTag: c99f5659-3ae4-4876-8aac-02f960b19b12
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: ba80f09c-69cf-47bc-be1f-c0434415b89e
+			defaultHierarchy: LocalDateTable_f8b6d14f-d28a-4e9f-a8a5-d177d2254c6f.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes e Ano Coleta' = FORMAT(DIM_CALENDARIO[Date], "MMMM \de YYYY")
+		lineageTag: 4ccdde5c-01d9-4ba8-9d64-b3e9c73ad0e7
+		summarizeBy: none
+		sortByColumn: Ciclo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ordenar semana' = FORMAT(DIM_CALENDARIO[Date] - WEEKDAY(DIM_CALENDARIO[Date],1) +1, "dd/mmm/yy")
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 5a01c8af-7001-4c94-ac3e-4a19bf70aa20
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 8dbd4db4-9354-416d-85bb-6276ea7e1051
+			defaultHierarchy: LocalDateTable_f0dd1a06-7298-43fe-b23f-b4df61d21a08.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Trimestre = date(DIM_CALENDARIO[Date].[Ano],DIM_CALENDARIO[Date].[QuarterNo],1)
+		formatString: yyyy-mm
+		lineageTag: e85af2b0-b7c9-4c4a-a1cb-ff6487860b35
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 71dbc69e-2e51-4a5a-b3db-413ddb8af508
+			defaultHierarchy: LocalDateTable_aeb3d2ba-68e3-4f35-8bc3-b93dc9fcca9c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Tri e Ano Coleta' = FORMAT(DIM_CALENDARIO[Date], "\QQ YYYY")
+		lineageTag: 1bd612cc-8504-48c1-bf9c-62219bf7c85b
+		summarizeBy: none
+		sortByColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_CALENDARIO = calculated
+		mode: import
+		source = CALENDAR(MIN(FT_RUPTURA[DATA]), Max(FT_RUPTURA[DATA]))
+
+	annotation PBI_Id = d0b1d690dcb0416a95a35c67dfc21ebe
+

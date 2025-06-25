@@ -1,0 +1,63 @@
+table 'Parâmetro Dim Colab 1'
+	lineageTag: c9cef6b3-7b2b-4c1a-a5eb-29dd6c5a84d2
+
+	column 'Parâmetro Dim Colab 1'
+		lineageTag: 02f4e906-37ab-487d-96a1-b50c54fd5e57
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Dim Colab 1 Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Dim Colab 1 Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Dim Colab 1 Campos'
+		isHidden
+		lineageTag: caf2ed93-62ed-4bc0-8b80-daa98e7e2998
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Dim Colab 1 Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Dim Colab 1 Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 990d18bb-ac04-4229-9840-8fd0d6cf21ba
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		isHidden
+		lineageTag: 95ebabf0-93fa-42d9-bf53-79d8f4069321
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Dim Colab 1' = calculated
+		mode: import
+		source =
+				{
+				    ("Colaborador Superior", NAMEOF('DIM_COLABORADOR'[COLABORADOR_SUPERIOR]), 0,"pt-BR"),
+				    ("Perfil Acesso", NAMEOF('DIM_COLABORADOR'[PERFIL_ACESSO]), 1,"pt-BR"),
+				    ("Perfil Colaborador", NAMEOF('DIM_COLABORADOR'[PERFIL_COLABORADOR]), 2,"pt-BR"),
+				        ("Supervisor", NAMEOF('DIM_COLABORADOR'[COLABORADOR_SUPERIOR]), 0,"es-ES"),
+				    ("Perfil Acceso", NAMEOF('DIM_COLABORADOR'[PERFIL_ACESSO]), 1,"es-ES"),
+				    ("Perfil Empleado", NAMEOF('DIM_COLABORADOR'[PERFIL_COLABORADOR]), 2,"es-ES"),
+				            ("Manager", NAMEOF('DIM_COLABORADOR'[COLABORADOR_SUPERIOR]), 0,"en-US"),
+				    ("Profile Access", NAMEOF('DIM_COLABORADOR'[PERFIL_ACESSO]), 1,"en-US"),
+				    ("Employee Profile", NAMEOF('DIM_COLABORADOR'[PERFIL_COLABORADOR]), 2,"en-US")
+				}
+
+	annotation PBI_Id = aa4d02d2a4cb44fa99211b5e521bab7d
+

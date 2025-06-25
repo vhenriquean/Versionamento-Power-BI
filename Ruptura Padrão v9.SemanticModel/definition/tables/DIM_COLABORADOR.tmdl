@@ -1,0 +1,157 @@
+table DIM_COLABORADOR
+	lineageTag: 5a15eea4-d9b8-4e7f-9d8d-fbc3693fc069
+
+	column ID_DIM_COLABORADOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b1ecd6a-1828-4056-a298-aeab30a2523f
+		summarizeBy: none
+		sourceColumn: ID_DIM_COLABORADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_AMBIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: d41b4b93-c464-479b-b166-375f290e6bbe
+		summarizeBy: sum
+		sourceColumn: ID_AMBIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOME_COLABORADOR
+		dataType: string
+		lineageTag: 593f44be-e3d4-487b-9008-5272228c6bc9
+		summarizeBy: none
+		sourceColumn: NOME_COLABORADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TEMPORARIO
+		dataType: double
+		formatString: 0
+		lineageTag: d37f59d9-7886-4b67-aa44-1edf1ece01a7
+		summarizeBy: none
+		sourceColumn: TEMPORARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column USUARIO_ATIVO
+		dataType: double
+		formatString: 0
+		lineageTag: 4317622b-e496-4374-989c-770bb2b110a0
+		summarizeBy: none
+		sourceColumn: USUARIO_ATIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERFIL_ACESSO
+		dataType: string
+		lineageTag: e923d383-b432-42a8-9935-e811b7ab7dbe
+		summarizeBy: none
+		sourceColumn: PERFIL_ACESSO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLABORADOR_SUPERIOR
+		dataType: string
+		lineageTag: a7116a3a-80f8-486b-8269-0b540af3e738
+		summarizeBy: none
+		sourceColumn: COLABORADOR_SUPERIOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERFIL_COLABORADOR
+		dataType: string
+		lineageTag: 4cc49e4b-b510-41d8-bcf9-6bdaf96a1c08
+		summarizeBy: none
+		sourceColumn: PERFIL_COLABORADOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CPF
+		dataType: string
+		lineageTag: 248e819d-432a-48ee-9580-91ae7a141872
+		summarizeBy: none
+		sourceColumn: CPF
+
+		annotation SummarizationSetBy = Automatic
+
+	column CARGO
+		dataType: string
+		lineageTag: 6ec4fbc7-23c5-4327-8fe3-6a7bb4d74f1e
+		summarizeBy: none
+		sourceColumn: CARGO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FL_TESTE
+		dataType: double
+		formatString: 0
+		lineageTag: 46064807-c233-4e45-a6e1-2e5e3657c37b
+		summarizeBy: none
+		sourceColumn: FL_TESTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametros - Todos Registros' = 0
+		formatString: 0
+		lineageTag: 1d6dcb06-731f-4539-ac8d-e034f54ec462
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - CPF Cadastrado' = IF(DIM_COLABORADOR[CPF]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 27e42ae8-f566-452d-8224-a4fba9b76ce6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - CPF Valido' = IF(DIM_COLABORADOR[CPF Valido]="Sim",1,0)
+		formatString: 0
+		lineageTag: 1538b2d0-870f-4862-913c-aa3f586e003c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - Superior' = IF(DIM_COLABORADOR[COLABORADOR_SUPERIOR]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: e7a15a15-6ee1-4f0a-b0ae-afb880e4f55b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - Endereço' = IF(DIM_COLABORADOR[ENDERECO]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 34047891-df4b-4692-9bc1-c18442bd1f9d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - perfil acesso' = IF(DIM_COLABORADOR[PERFIL_ACESSO]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 07fcdae2-1e6c-46cf-b814-4629c1c5e232
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro - perfil colaborador' = IF(DIM_COLABORADOR[PERFIL_COLABORADOR]<>BLANK(),1,0)
+		formatString: 0
+		lineageTag: 7da7fa1b-4655-449d-acbf-1a38528c089b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_COLABORADOR = m
+		mode: import
+		source =
+				let
+				    Fonte = MySQL.Database("inteligenciadb1.involves.com", "BIS_QUATA", [ReturnSingleDatabase=true, Query="SELECT ID_DIM_COLABORADOR, ID_AMBIENTE, NOME_COLABORADOR, TEMPORARIO, USUARIO_ATIVO, PERFIL_ACESSO, COLABORADOR_SUPERIOR, PERFIL_COLABORADOR, CPF, CARGO, FL_TESTE#(lf)FROM DIM_COLABORADOR", CommandTimeout=#duration(0, 3, 42, 0)])
+				in
+				    Fonte
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

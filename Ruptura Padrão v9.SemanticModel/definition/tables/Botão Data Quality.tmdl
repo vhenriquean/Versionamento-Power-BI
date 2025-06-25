@@ -1,0 +1,31 @@
+table 'Botão Data Quality'
+	lineageTag: e77e45e4-8f80-4fcc-91d5-7b76d22e4b58
+
+	column DQ
+		lineageTag: f21b5cfa-c355-431c-82c4-cca9f1f584eb
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: da436882-3201-42b0-8059-1ce4b616eaa7
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		formatString: 0
+		lineageTag: cf800be3-1545-4f5c-b78b-00778eef28ad
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Botão Data Quality' = calculated
+		mode: import
+		source = {("Data Quality","pt-BR",0), ("Data Quality","es-ES",0), ("Data Quality","en-US",0)}
+
+	annotation PBI_Id = 75cca4bad48e4a77ba2a3d9d9d26c554
+

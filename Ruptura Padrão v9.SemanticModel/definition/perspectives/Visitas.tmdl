@@ -1,0 +1,88 @@
+perspective Visitas
+
+	perspectiveTable DIM_PDV
+
+		perspectiveColumn NOME_PDV
+
+		perspectiveColumn BANDEIRA
+
+		perspectiveColumn REDE
+
+		perspectiveColumn TIPO_PDV
+
+		perspectiveColumn PERFIL_PDV
+
+		perspectiveColumn CANAL_PDV
+
+		perspectiveColumn REGIONAL
+
+		perspectiveColumn MACRORREGIONAL
+
+		perspectiveColumn CODIGO_PDV
+
+		perspectiveColumn ESTADO
+
+	perspectiveTable DIM_COLABORADOR
+
+		perspectiveColumn NOME_COLABORADOR
+
+		perspectiveColumn COLABORADOR_SUPERIOR
+
+		perspectiveColumn PERFIL_COLABORADOR
+
+		perspectiveColumn PERFIL_ACESSO
+
+	perspectiveTable DIM_CALENDARIO
+
+		perspectiveColumn Date
+
+		perspectiveColumn 'Numero da Semana do Ano'
+
+		perspectiveColumn 'Nome Abreviado do Mes'
+
+		perspectiveColumn 'Numero do Mes'
+
+		perspectiveColumn 'Numero Semana do Mes'
+
+		perspectiveColumn 'Semana do Mes'
+
+		perspectiveColumn 'Mês e Ano'
+
+		perspectiveColumn Ciclo
+
+		perspectiveColumn Ano
+
+		perspectiveColumn 'Dia Semana'
+
+		perspectiveColumn 'Dia Semana n'
+
+		perspectiveColumn 'Primeiro Dia da Semana'
+
+		perspectiveColumn 'Último Dia da Semana'
+
+		perspectiveColumn 'Semana do Mes Intervalo'
+
+		perspectiveColumn 'Mês e Ano (Começo Semana)'
+
+		perspectiveColumn 'Mes (Começo Semana)'
+
+		perspectiveColumn Semana
+
+		perspectiveColumn 'Mês e Ano (Resumido)'
+
+		perspectiveColumn 'Mes e Ano Coleta'
+
+	perspectiveTable DIM_AMBIENTE
+
+		perspectiveColumn AMBIENTE
+
+		perspectiveColumn NOME_RESPONSAVEL
+
+	perspectiveTable 'MEDIDAS VISITAS'
+
+		perspectiveMeasure 'Visitas Realizadas'
+
+		perspectiveMeasure 'Colaboradores Totais'
+
+		perspectiveMeasure 'Total PDVs'
+

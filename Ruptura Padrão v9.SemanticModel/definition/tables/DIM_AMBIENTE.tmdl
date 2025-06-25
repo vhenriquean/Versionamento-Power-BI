@@ -1,0 +1,69 @@
+table DIM_AMBIENTE
+	lineageTag: d38c6494-5072-43cd-b9fc-707dfe6b4ada
+
+	column ID_DIM_AMBIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 244f226f-ec9d-4140-989b-929fc68fc7c9
+		summarizeBy: none
+		sourceColumn: ID_DIM_AMBIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_URL
+		dataType: int64
+		formatString: 0
+		lineageTag: 4223da04-a11c-4124-b061-597173aa06e6
+		summarizeBy: none
+		sourceColumn: ID_URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_AMBIENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d189b5e-48a8-4c56-b090-f8f5e1e0a330
+		summarizeBy: none
+		sourceColumn: ID_AMBIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column AMBIENTE
+		dataType: string
+		lineageTag: 3b4863fd-68b6-45cd-8e32-273e5646e5d0
+		summarizeBy: none
+		sourceColumn: AMBIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOME_RESPONSAVEL
+		dataType: string
+		lineageTag: 99bae03f-7629-40bb-bee6-1adf771e3461
+		summarizeBy: none
+		sourceColumn: NOME_RESPONSAVEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ATIVO
+		dataType: int64
+		formatString: 0
+		lineageTag: cc40e428-3ffb-4275-969a-a5dc23bea08d
+		summarizeBy: none
+		sourceColumn: ATIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_AMBIENTE = m
+		mode: import
+		source =
+				let
+				    Fonte = MySQL.Database("inteligenciadb1.involves.com", "BIS_QUATA", [ReturnSingleDatabase=true]),
+				    BIS_MDIASLP_DIM_PDV = Fonte{[Schema="BIS_QUATA",Item="DIM_AMBIENTE"]}[Data],
+				    #"Linhas Filtradas" = Table.SelectRows(BIS_MDIASLP_DIM_PDV, each [ATIVO] = 1)
+				in
+				    #"Linhas Filtradas"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

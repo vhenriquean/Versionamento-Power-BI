@@ -1,0 +1,56 @@
+table 'Parametro Colaborador 2'
+	lineageTag: 25c22b1c-63a9-492c-b8ca-2b910666ad6c
+
+	column 'Parametro Colaborador 2'
+		lineageTag: 8da541a6-758c-4e74-a721-30ade4d579a6
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parametro Colaborador 2 Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parametro Colaborador 2 Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro Colaborador 2 Campos'
+		isHidden
+		lineageTag: aea56994-a06a-46ad-b3d5-bbec86832178
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parametro Colaborador 2 Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parametro Colaborador 2 Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 5a7ffa4b-dc4e-438c-b9a6-6c6ecd0af68e
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Idioma
+		lineageTag: e9882d7c-9b9d-4a27-aa00-42c6f7c0eb6a
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parametro Colaborador 2' = calculated
+		mode: import
+		source =
+				{
+				    ("AMBIENTE", NAMEOF('DIM_AMBIENTE'[AMBIENTE]), 0,"pt-BR"),
+				    ("AMBIENTE", NAMEOF('DIM_AMBIENTE'[AMBIENTE]), 0,"es-ES"),
+				    ("ENVIRONMENT", NAMEOF('DIM_AMBIENTE'[AMBIENTE]), 0,"en-US")
+				}
+
+	annotation PBI_Id = 3dc1da2561f54975abf913ad6b8d5ff6
+
