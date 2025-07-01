@@ -1,4 +1,4 @@
-# 📊 Painéis Padrões Versionados
+# 📊 Painéis Padrões Versionados - Time de Inteligência
 
 ![Badge Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![GitHub last commit](https://img.shields.io/github/last-commit/vhenriquean/Versionamento-Power-BI)
