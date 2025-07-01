@@ -68,13 +68,13 @@ Este documento registra todas as mudanças significativas nos painéis padrões.
 
 ## [Unreleased]
 ### Added
-- Novo painel de métricas de marketing digital
-
+- Novo painel de métricas de Sell-Out
+- 
 ### Changed
 - Atualização do template gerencial para v5.1
 
 ### Fixed
-- Correção de labels no painel de funil de conversão
+- Correção de tabela no painel de dados de Loja Perfeita
 
 ## [1.0.0] - 2023-11-15
 ### Added
@@ -86,8 +86,8 @@ Este documento registra todas as mudanças significativas nos painéis padrões.
 
 2.  .gitignore
 
-**/.pbi/localSettings.json
-**/.pbi/cache.abf
+- **/.pbi/localSettings.json  
+- **/.pbi/cache.abf
 
 3. .github/PULL_REQUEST_TEMPLATE.md
 
