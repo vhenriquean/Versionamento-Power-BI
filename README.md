@@ -1,48 +1,55 @@
 # 📊 Painéis Padrões Versionados
 
 ![Badge Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![GitHub last commit](https://img.shields.io/github/last-commit/seuuser/seurepo)
-![GitHub repo size](https://img.shields.io/github/repo-size/seuuser/seurepo)
+![GitHub last commit](https://img.shields.io/github/last-commit/vhenriquean/Versionamento-Power-BI)
+![GitHub repo size](https://img.shields.io/github/repo-size/vhenriquean/Versionamento-Power-BI)
 
-Repositório central para versionamento e gestão de todos os painéis de dashboards e relatórios padrão da organização.
+Repositório central para versionamento e gestão de todos os painéis padrão da time de Inteligência.
 
 ## 📂 Estrutura do Projeto
 
+```
 paineis/
 ├── 📁 preço/
-│ ├── 📄 painel_preco_padrao.pbip
+│   ├── 📄 painel_preco_padrao.pbip
+│
 ├── 📁 produtividade/
-│ ├── 📄 painel_produtividade_padrao.pbip
+│   ├── 📄 painel_produtividade_padrao.pbip
+│
 ├── 📁 ruptura/
-│ ├── 📄 painel_ruptura_padrao.pbip
+│   ├── 📄 painel_ruptura_padrao.pbip
+│
 ├── 📁 share/
-│ ├── 📄 painel_share_padrao.pbip
+│   ├── 📄 painel_share_padrao.pbip
+```
 
 
-🔄 Fluxo de Versionamento
+## 🔄 Fluxo de Versionamento
 1. main - Versões estáveis (production)
 
 2. staging - Pré-lançamento (homologação)
 
 3. dev - Desenvolvimento ativo
 
-📌 Regras de Commit
-Tipo	Prefixo	Exemplo
-Novo	[ADD]	[ADD] marketing/novo-painel
-Atualização	[UPD]	[UPD] template v1.2
-Correção	[FIX]	[FIX] correcao-eixos
-Remoção	[DEL]	[DEL] painel-obsoleto
+## 📌 Regras de Commit
+
+| Tipo          | Prefixo  | Exemplo                     |
+|---------------|----------|-----------------------------|
+| **Novo**      | `[ADD]`  | `[ADD] preço/novo-painel`   |
+| **Atualização**| `[UPD]` | `[UPD] template v1.2`       |
+| **Correção**  | `[FIX]`  | `[FIX] correcao-eixos`      |
+| **Remoção**   | `[DEL]`  | `[DEL] painel-obsoleto`     |
+
+## 🤝 Contribuição
+
+- Crie uma branch: git checkout -b feature/nova-funcionalidade
+
+- Commit suas mudanças: git commit -m "[ADD] novo painel fini"
+
+- Push para a branch: git push origin feature/nova-funcionalidade
 
 
-🤝 Contribuição
-Crie uma branch: git checkout -b feature/nova-funcionalidade
-
-Commit suas mudanças: git commit -m "[ADD] novo painel marketing"
-
-Push para a branch: git push origin feature/nova-funcionalidade
-
-
-Abra um Pull Request
+## Abra um Pull Request
 
 
 ✉️ Contato
@@ -51,7 +58,7 @@ Equipe de Inteligência de Dados - inteligencia@involves.com
 Nota: Todos os painéis devem passar pelo processo de aprovação antes do merge para a branch main.
 
 
-📝 Arquivos Adicionais para o Repositório
+📝 Arquivos Adicionais para o Repositório (Exemplos):
 
 1. CHANGELOG.md
    
