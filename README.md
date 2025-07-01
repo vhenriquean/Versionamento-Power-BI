@@ -69,7 +69,7 @@ Este documento registra todas as mudanças significativas nos painéis padrões.
 ## [Unreleased]
 ### Added
 - Novo painel de métricas de Sell-Out
-- 
+  
 ### Changed
 - Atualização do template gerencial para v5.1
 
