@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Report",
-    "displayName": "Ruptura Padrão v9"
+    "displayName": "Ruptura Padrão"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "b23c113b-6d45-4470-a995-b8cf1ab2df86"
+    "logicalId": "a9e698bf-bab8-4117-a510-fb3303b8bff0"
   }
 }
